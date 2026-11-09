@@ -1,4 +1,4 @@
-const CACHE='rpg-bc-v2';
+const CACHE='rpg-bc-v3';
 const ARCHIVOS=['./','index.html','manifest.json','icon-192.png','icon-512.png','og.jpg',
 'img/rio-canoa.jpg','img/rio-isla.jpg','img/atardecer.jpg','img/siembra.jpg','img/arbol.jpg',
 'img/equipo.jpg','img/letras-caucasia.jpg','img/templo.jpg','img/monumento.jpg','img/mapa-bajo-cauca.jpg','img/mapa-colombia.jpg'];

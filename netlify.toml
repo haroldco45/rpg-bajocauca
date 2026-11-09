@@ -1,0 +1,4 @@
+# Los commits del robot ([robot]) NO se publican en Netlify: la app lee las redes directo desde GitHub.
+[build]
+  publish = "."
+  ignore = "git log -1 --pretty=%s | grep -q '\\[robot\\]'"
