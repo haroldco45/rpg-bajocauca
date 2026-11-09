@@ -227,6 +227,9 @@ textarea{min-height:90px;resize:vertical}
 .post .img img,.post .img iframe{width:100%;height:100%;object-fit:cover;border:0;display:block}
 .post .red{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.6);color:#fff;font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.5px}
 .post .red.nuevo{background:var(--rojo)}
+.post.reel .img{aspect-ratio:auto;height:560px;background:#fff}
+.post.reel .img iframe{height:100%}
+.post.reel .red{pointer-events:none}
 .post .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);border:0;cursor:pointer;color:#fff;font-family:inherit;font-weight:800;font-size:.9rem;letter-spacing:1px}
 .post .play span{background:var(--rojo);padding:10px 18px;border-radius:999px}
 .post .cuerpo{padding:14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
@@ -831,10 +834,12 @@ async function cargarRedes(manual){
 function todasRedes(){if(!REDES)return[];
   return [...(REDES.instagram||[]),...(REDES.youtube||[]),...(REDES.noticias||[]),...(REDES.manual||[]).filter(x=>x.id!=='m-ejemplo')]
    .filter(x=>x&&x.enlace).sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)));}
-function pintarVideos(){const v=(REDES&&REDES.youtube||[]).slice(0,3);
+function pintarVideos(){const v=(REDES&&REDES.youtube||[]).slice(0,3);const reels=(REDES&&REDES.manual||[]).filter(x=>x.embed).slice(0,2);
   $('#videosRPG').innerHTML=v.map(x=>`<article class="post"><div class="img"><img src="${esc(x.imagen)}" alt="" loading="lazy" onerror="this.src='img/rio-isla.jpg'">
    <span class="red">YouTube · @rpg_bajocauca</span><button class="play" data-v="${esc(x.video)}"><span>${t('rdVerVideo')}</span></button></div>
-   <div class="cuerpo"><span class="fecha">${fechaBonita(x.fecha)}</span><h4>${esc(sinEmoji(x.titulo))}</h4></div></article>`).join('');}
+   <div class="cuerpo"><span class="fecha">${fechaBonita(x.fecha)}</span><h4>${esc(sinEmoji(x.titulo))}</h4></div></article>`).join('')
+   +reels.map(x=>`<article class="post reel"><div class="img"><iframe src="${esc(x.embed)}" loading="lazy" allowtransparency="true" allow="encrypted-media; autoplay" scrolling="no"></iframe></div>
+   <div class="cuerpo"><h4>${esc(sinEmoji(x.titulo))}</h4></div></article>`).join('');}
 $('#videosRPG').addEventListener('click',e=>{const b=e.target.closest('.play');if(!b)return;
   b.parentElement.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.v)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;});
 function pintarRedes(){if(!REDES)return; pintarVideos();
@@ -847,7 +852,13 @@ function pintarRedes(){if(!REDES)return; pintarVideos();
     <a style="background:var(--verde);color:#fff" href="https://www.facebook.com/rpg_bajocauca" target="_blank" rel="noopener">Facebook</a>
     <a style="background:var(--verde);color:#fff" href="https://www.tiktok.com/@rpg_bajocauca" target="_blank" rel="noopener">TikTok</a>
     <a style="background:var(--verde);color:#fff" href="https://www.youtube.com/@rpg_bajocauca" target="_blank" rel="noopener">YouTube</a></div></div>`;return;}
-  $('#posts').innerHTML=vis.slice(0,12).map((x,i)=>{const img=rutaImg(x.imagen)||FOTOS_RESPALDO[i%FOTOS_RESPALDO.length];const nuevo=diaCO(x.fecha)===hoy;
+  $('#posts').innerHTML=vis.slice(0,12).map((x,i)=>{
+    if(x.embed&&/^https:\/\/www\.instagram\.com\/(reel|p)\/[\w-]+\/embed\/?$/.test(x.embed)){const nuevo=diaCO(x.fecha)===hoy;
+      return `<article class="post reel"><div class="img"><iframe src="${esc(x.embed)}" loading="lazy" allowtransparency="true" allow="encrypted-media; autoplay" scrolling="no"></iframe>
+      <span class="red ${nuevo?'nuevo':''}">${nuevo?t('rdNuevo')+' · ':''}Reel · Instagram</span></div>
+      <div class="cuerpo"><span class="fecha">${fechaBonita(x.fecha)}</span><h4>${esc(sinEmoji(x.titulo))}</h4>
+      <a class="ver" href="${esc(x.enlace)}" target="_blank" rel="noopener">${t('rdVer')} →</a></div></article>`;}
+    const img=rutaImg(x.imagen)||FOTOS_RESPALDO[i%FOTOS_RESPALDO.length];const nuevo=diaCO(x.fecha)===hoy;
     return `<article class="post"><div class="img"><img src="${esc(img)}" alt="" loading="lazy" onerror="this.src='${FOTOS_RESPALDO[i%FOTOS_RESPALDO.length]}'">
     <span class="red ${nuevo?'nuevo':''}">${nuevo?t('rdNuevo')+' · ':''}${esc(x.red)}${x.fuente?' · '+esc(x.fuente):''}</span>
     ${x.video?`<button class="play" data-v="${esc(x.video)}"><span>${t('rdVerVideo')}</span></button>`:''}</div>
