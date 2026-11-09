@@ -11,11 +11,15 @@ while (cola.length && vistos.size < MAX) {
   const url = cola.shift(); if (vistos.has(url)) continue; vistos.add(url);
   try {
     const r = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(25000) });
-    if (!r.ok || !(r.headers.get('content-type') || '').includes('html')) continue;
+    if (!r.ok) continue;
+    const tipo = r.headers.get('content-type') || '';
+    if (/javascript/.test(tipo) || url.endsWith('.js')) { await fs.writeFile(`data/sitio/raw/${nombre(url)}.js.txt`, await r.text()); continue; }
+    if (!tipo.includes('html')) continue;
     const html = await r.text();
     await fs.writeFile(`data/sitio/raw/${nombre(url)}.html`, html);
+    for (const m of html.matchAll(/src="([^"]+\.js)"/g)) { try { const u = new URL(m[1], url).href; if (!vistos.has(u)) cola.push(u); } catch {} }
     for (const m of html.matchAll(/href="([^"#]+)"/g)) {
-      try { const u = new URL(m[1], url); u.search = ''; if (u.host === new URL(BASE).host && !/\.(pdf|jpg|jpeg|png|webp|gif|zip|docx?|xlsx?)$/i.test(u.pathname) && !vistos.has(u.href)) cola.push(u.href); } catch {}
+      try { const u = new URL(m[1], url); u.search = ''; if (u.host === new URL(BASE).host && !/\.(css|ico|pdf|jpg|jpeg|png|webp|gif|zip|docx?|xlsx?)$/i.test(u.pathname) && !vistos.has(u.href)) cola.push(u.href); } catch {}
     }
     for (const m of html.matchAll(/(?:src|data-src|content)="([^"]+\.(?:jpe?g|png|webp)[^"]*)"/gi)) {
       try { const u = new URL(m[1], url).href; if (!imagenes.has(u)) imagenes.set(u, url); } catch {}
