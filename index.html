@@ -881,9 +881,9 @@ function pintarVideos(){const v=(REDES&&REDES.youtube||[]).slice(0,3);const reel
 document.querySelector('.seccion-video').addEventListener('click',e=>{const b=e.target.closest('.play');if(!b)return;
   b.parentElement.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.v)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;});
 let carruselT=null;
-function pintarBanners(){const b=(REDES&&REDES.banners||[]).filter(x=>/^https:/.test(x.imagen));
+function pintarBanners(){const b=(REDES&&REDES.banners||[]).filter(x=>x.imagen);
   $('#destacados').hidden=!b.length; if(!b.length)return;
-  $('#carrusel').innerHTML=b.map((x,i)=>`<a href="${esc(x.enlace)}" target="_blank" rel="noopener" class="${i?'':'on'}"><img src="${esc(x.imagen)}" alt="${esc(x.titulo)}" loading="${i?'lazy':'eager'}">${x.titulo?`<span>${esc(sinEmoji(x.titulo))}</span>`:''}</a>`).join('');
+  $('#carrusel').innerHTML=b.map((x,i)=>`<a href="${esc(x.enlace)}" target="_blank" rel="noopener" class="${i?'':'on'}"><img src="${esc(rutaImg(x.imagen))}" alt="${esc(x.titulo)}" loading="${i?'lazy':'eager'}">${x.titulo?`<span>${esc(sinEmoji(x.titulo))}</span>`:''}</a>`).join('');
   $('#puntosC').innerHTML=b.map((x,i)=>`<i class="${i?'':'on'}" data-i="${i}"></i>`).join('');
   let i=0;const ir=n=>{const a=$$('#carrusel a'),p=$$('#puntosC i');a[i].classList.remove('on');p[i].classList.remove('on');i=n%a.length;a[i].classList.add('on');p[i].classList.add('on');};
   $('#puntosC').onclick=e=>{const d=e.target.dataset.i;if(d!=null)ir(+d);};

@@ -3,6 +3,7 @@
 // y deja todo en data/redes.json para que la app lo lea directo desde GitHub.
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const USUARIO = 'rpg_bajocauca';
 const SALIDA = 'data/redes.json';
@@ -47,7 +48,7 @@ async function instagram() {
   const salida = [];
   await fs.mkdir(CARPETA_FOTOS, { recursive: true });
   for (const { node } of edges.slice(0, 8)) {
-    const archivo = `${CARPETA_FOTOS}/ig-${node.shortcode}.jpg`;
+    const archivo = `${CARPETA_FOTOS}/ig-${node.shortcode}.jpg`; usadas.add(archivo);
     // Las fotos de Instagram vencen: se guardan en el repo para que nunca se rompan.
     try { await fs.access(archivo); } catch { try { await fs.writeFile(archivo, await traer(node.thumbnail_src || node.display_url, { binario: true })); } catch {} }
     salida.push({ red: 'Instagram', id: 'ig-' + node.shortcode,
@@ -80,6 +81,21 @@ async function noticias() {
 // ---------- Sitio oficial (micolombiadigital): noticias y banners ----------
 const SITIO = 'https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co';
 const absoluto = u => u ? new URL(u, SITIO).href.replace(/^http:/, 'https:') : '';
+// Guarda una foto liviana (máx. 1200 px) en el repo para que la app la sirva desde GitHub
+const usadas = new Set();
+async function guardarFoto(url, nombre) {
+  if (!url) return '';
+  const destino = `${CARPETA_FOTOS}/${nombre}.jpg`; usadas.add(destino);
+  try { await fs.access(destino); return destino; } catch {}
+  try {
+    await fs.mkdir(CARPETA_FOTOS, { recursive: true });
+    const tmp = destino + '.tmp'; await fs.writeFile(tmp, await traer(url, { binario: true }));
+    try { execFileSync('convert', [tmp, '-resize', '1200x1200>', '-strip', '-quality', '78', 'jpg:' + destino]); await fs.rm(tmp); }
+    catch { await fs.rename(tmp, destino); }
+    return destino;
+  } catch (e) { console.log('foto', url, e.message); return url; }
+}
+
 async function sitio() {
   const articulos = [];
   for (let page = 1; page <= 20; page++) {
@@ -90,15 +106,17 @@ async function sitio() {
         enlace: `https://www.rpgbajocauca-antioquia.gov.co/noticias/${x.friendlyName}`, imagen: absoluto(x.defaultImage || x.imagePost) });
     if (!d.meta?.hasNextPage) break;
   }
-  return articulos.sort((a, b) => b.contentID - a.contentID).slice(0, 24);
+  const top = articulos.sort((a, b) => b.contentID - a.contentID).slice(0, 24);
+  for (const a of top) a.imagen = await guardarFoto(a.imagen, a.id);
+  return top;
 }
 async function banners() {
   const d = JSON.parse(await traer(`${SITIO}/api/v1/banners`, { headers: { Accept: 'application/json' } }));
   return (d.results || []).filter(b => b.active).sort((a, b) => a.displayOrder - b.displayOrder).map(b => {
     let c = {}; try { c = JSON.parse(b.body); } catch {}
     const img = c.file?.imageUrl || c.file?.filePath;
-    return img ? { id: 'b-' + b.bannerID, imagen: absoluto(img), titulo: sinEmojis((c.title || c.description || '').normalize('NFKC')), enlace: c.link || 'https://www.rpgbajocauca-antioquia.gov.co/' } : null;
-  }).filter(Boolean);
+    return img ? { id: 'b-' + b.bannerID, imagen: absoluto(img), original: absoluto(img), titulo: sinEmojis((c.title || c.description || '').normalize('NFKC')), enlace: c.link || 'https://www.rpgbajocauca-antioquia.gov.co/' } : null;
+  }).filter(Boolean).reduce(async (accP, x) => { const acc = await accP; x.imagen = await guardarFoto(x.original, x.id + '-' + x.original.split('/').pop().replace(/\W+/g, '')); acc.push(x); return acc; }, Promise.resolve([]));
 }
 
 async function leerJSON(f, def) { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return def; } }
@@ -113,6 +131,9 @@ for (const [nombre, fn] of Object.entries(fuentes)) {
   catch (e) { resultado[nombre] = (anterior[nombre] || []).map(x => ({ ...x, titulo: sinEmojis(x.titulo) })); resultado.estado[nombre] = 'sin respuesta, se dejan las últimas guardadas'; console.log(nombre, 'falló:', e.message); }
 }
 resultado.manual = manual;
+// Conserva las fotos guardadas de fuentes que no respondieron esta vez
+for (const k of ['sitio', 'banners', 'instagram']) for (const x of resultado[k] || []) if (x.imagen?.startsWith(CARPETA_FOTOS)) usadas.add(x.imagen);
+try { for (const f of await fs.readdir(CARPETA_FOTOS)) { const r = `${CARPETA_FOTOS}/${f}`; if (!usadas.has(r)) await fs.rm(r); } } catch {}
 
 // Solo se guarda si cambió algo (así no hay commits de más)
 const sinHora = o => JSON.stringify({ ...o, revisado: 0, revisadoISO: 0, estado: 0 });
