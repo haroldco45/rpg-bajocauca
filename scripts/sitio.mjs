@@ -41,3 +41,20 @@ for (const [src, pagina] of imagenes) {
 }
 await fs.writeFile('data/sitio/indice.json', JSON.stringify({ paginas: [...vistos], imagenes: lista }, null, 2));
 console.log('paginas', vistos.size, 'imagenes', lista.length);
+
+// --- Segunda pasada: chunks perezosos y API del sitio ---
+const archivos = await fs.readdir('data/sitio/raw');
+let todoJs = '';
+for (const f of archivos) if (f.endsWith('.js.txt')) todoJs += await fs.readFile('data/sitio/raw/' + f, 'utf8');
+const chunks = [...new Set([...todoJs.matchAll(/chunk-[A-Z0-9]{8}\.js/g)].map(m => m[0]))];
+for (const c of chunks) {
+  const f = `data/sitio/raw/${c.replace('.', '_')}.js.txt`;
+  try { await fs.access(f); } catch { try { const r = await fetch(`${BASE}/${c}`, { headers: { 'User-Agent': UA } }); if (r.ok) await fs.writeFile(f, await r.text()); } catch {} }
+}
+await fs.mkdir('data/sitio/api', { recursive: true });
+const candidatos = ['/api/v1/settings', '/api/v1/config', '/api/v1/tags', '/api/v1/instagram/', '/api/v1/settings/content/settingcontentglobal', '/api/v1/settings/moreviewed', '/api/v1/content/moreviewed', '/api/v1/globallogo'];
+for (const p of candidatos) {
+  try { const r = await fetch(BASE + p, { headers: { 'User-Agent': UA, 'Accept': 'application/json' } });
+    await fs.writeFile(`data/sitio/api/${p.replace(/[^\w]+/g, '_')}.txt`, `HTTP ${r.status}\n` + (await r.text()).slice(0, 2_000_000)); } catch (e) { console.log('api', p, e.message); }
+}
+console.log('chunks', chunks.length);
