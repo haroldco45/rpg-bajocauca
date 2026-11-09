@@ -30,7 +30,7 @@ Desarrollada por **Vibras Positivas HM** — Derechos de Autor Reservados · vib
 
 ## Robot de redes (solo GitHub)
 - `.github/workflows/robot-redes.yml` corre cada 30 minutos en GitHub Actions (y a mano con **Run workflow**).
-- `scripts/robot.mjs` revisa **Instagram** y **YouTube** de @rpg_bajocauca y las **noticias** de Google Noticias que mencionan a la RPG-BC. Deja todo en `data/redes.json` y guarda las fotos de Instagram en `data/redes/` para que no se rompan.
+- `scripts/robot.mjs` revisa el **sitio oficial** (noticias y banners de rpgbajocauca-antioquia.gov.co), **Instagram** y **YouTube** de @rpg_bajocauca y las **noticias** de Google Noticias que mencionan a la RPG-BC. Deja todo en `data/redes.json` y guarda las fotos de Instagram en `data/redes/` para que no se rompan.
 - Facebook, TikTok y X no dejan leer sus publicaciones sin cuenta: las que quieras destacar se pegan en `data/manual.json`.
 - La app lee `data/redes.json` directo desde GitHub. `netlify.toml` hace que Netlify **no** publique los commits del robot (`[robot]`), así no se gastan créditos.
 - La app trae botón **Actualizar**, contador **Hoy** y la hora de la última revisión (hora Colombia).

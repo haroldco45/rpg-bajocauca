@@ -1,1 +1,0 @@
-import{a}from"./chunk-HBQPIQM7.js";import{V as i,_ as e}from"./chunk-BBKAGAFZ.js";var o=class t{constructor(r){this.http=r}apiUrl="/api/v1/tracks";add(r){return this.http.post(this.apiUrl,r)}static \u0275fac=function(p){return new(p||t)(e(a))};static \u0275prov=i({token:t,factory:t.\u0275fac,providedIn:"root"})};export{o as a};

@@ -212,6 +212,23 @@ textarea{min-height:90px;resize:vertical}
 .contador-ini{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .contador-ini b{color:var(--verde)}
 
+/* Destacados oficiales */
+.destacados{padding:40px 0 30px}
+.carrusel{position:relative;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);aspect-ratio:4/1;background:var(--verde)}
+.carrusel a{position:absolute;inset:0;opacity:0;transition:opacity 1s}
+.carrusel a.on{opacity:1}
+.carrusel img{width:100%;height:100%;object-fit:cover}
+.carrusel span{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;color:#fff;font-weight:700;font-size:.85rem;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+.puntos-c{display:flex;gap:6px;justify-content:center;margin-top:12px}
+.puntos-c i{width:9px;height:9px;border-radius:50%;background:#cfe1d5;cursor:pointer;transition:.3s}
+.puntos-c i.on{background:var(--verde);width:26px;border-radius:6px}
+@media (max-width:620px){.carrusel{aspect-ratio:16/9}}
+.ubicacion{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:22px}
+.ubicacion iframe{width:100%;height:260px;border:0;border-radius:var(--radio)}
+.ubicacion div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:var(--radio);padding:22px}
+.ubicacion small{display:block;color:var(--amarillo);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.7rem}
+@media (max-width:860px){.ubicacion{grid-template-columns:1fr}}
+.post .resumen{font-size:.82rem;color:var(--gris);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 /* En redes */
 .redes-sec{background:linear-gradient(180deg,#fff,var(--menta))}
 .barra-redes{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:20px}
@@ -363,6 +380,14 @@ footer b{color:#fff}
     <div class="cifra"><b><span data-contar="8485" data-miles="1">0</span> km<sup>2</sup></b><span data-i18n="cTer">De territorio</span></div>
   </div>
 </div>
+
+<section class="destacados" id="destacados" hidden>
+  <div class="wrap">
+    <div class="titulo"><div class="pre" data-i18n="bPre">Destacado por la RPG-BC</div></div>
+    <div class="carrusel" id="carrusel"></div>
+    <div class="puntos-c" id="puntosC"></div>
+  </div>
+</section>
 
 <div class="cinta" aria-hidden="true"><div class="pista" id="pista"></div></div>
 
@@ -542,7 +567,7 @@ footer b{color:#fff}
     <div class="titulo revela">
       <div class="pre" data-i18n="rdPre">Lo último de @rpg_bajocauca</div>
       <h2 data-i18n="rdH2">En redes y en las noticias</h2>
-      <p data-i18n="rdP">Un robot revisa cada 30 minutos las publicaciones de la RPG-BC y las noticias que la mencionan.</p>
+      <p data-i18n="rdP">Un robot revisa cada 30 minutos el sitio oficial, las redes de la RPG-BC y las noticias que la mencionan.</p>
     </div>
     <div class="barra-redes">
       <span class="hoy" id="hoyRedes"><span data-i18n="rdHoy">Hoy</span>: <b id="numHoy">0</b> <span data-i18n="rdHoyTxt">publicaciones nuevas</span></span>
@@ -551,6 +576,7 @@ footer b{color:#fff}
     </div>
     <div class="filtros" id="filtros">
       <button class="on" data-f="todo" data-i18n="rdTodo">Todo</button>
+      <button data-f="Sitio oficial" data-i18n="rdSitio">Sitio oficial</button>
       <button data-f="Instagram">Instagram</button>
       <button data-f="YouTube">YouTube</button>
       <button data-f="Noticia" data-i18n="rdNoticias">Noticias</button>
@@ -572,7 +598,11 @@ footer b{color:#fff}
         <source src="video/territorio.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="posts" id="videosRPG" style="margin-top:22px"></div>
+    <div class="posts" style="margin-top:22px">
+      <article class="post"><div class="img"><img src="https://i.ytimg.com/vi/x98ihQEwsPA/hqdefault.jpg" alt="" loading="lazy" onerror="this.src='img/rio-isla.jpg'"><span class="red">Video institucional</span><button class="play" data-v="x98ihQEwsPA"><span data-i18n="rdVerVideo">VER VIDEO</span></button></div><div class="cuerpo"><h4 data-i18n="vInst">Video institucional de la RPG-BC</h4></div></article>
+      <article class="post"><div class="img"><img src="https://i.ytimg.com/vi/VecdniUUtbM/hqdefault.jpg" alt="" loading="lazy" onerror="this.src='img/siembra.jpg'"><span class="red">Marca territorial</span><button class="play" data-v="VecdniUUtbM"><span data-i18n="rdVerVideo">VER VIDEO</span></button></div><div class="cuerpo"><h4 data-i18n="vMarca">¡Estamos construyendo la Marca Territorial del Bajo Cauca!</h4></div></article>
+    </div>
+    <div class="posts" id="videosRPG" style="margin-top:16px"></div>
     <p class="nota-video revela" data-i18n="vNota">Más videos de la RPG-BC en sus redes: @rpg_bajocauca</p>
     <div class="redes revela"><a class="oscuro" href="https://www.youtube.com/@rpg_bajocauca" target="_blank" rel="noopener">YouTube</a><a class="oscuro" href="https://www.tiktok.com/@rpg_bajocauca" target="_blank" rel="noopener">TikTok</a><a class="oscuro" href="https://www.instagram.com/rpg_bajocauca/" target="_blank" rel="noopener">Instagram</a></div>
   </div>
@@ -595,6 +625,8 @@ footer b{color:#fff}
       <figure><img src="img/templo.jpg" alt="" loading="lazy"><figcaption data-i18n="g7">Patrimonio y fe de la región</figcaption></figure>
       <figure><img src="img/mapa-bajo-cauca.jpg" alt="" loading="lazy"><figcaption data-i18n="mapa2">Los seis municipios de la RPG-BC</figcaption></figure>
       <figure><img src="img/monumento.jpg" alt="" loading="lazy"><figcaption data-i18n="g8">La vida ribereña</figcaption></figure>
+      <figure class="ancha"><img src="img/siembra-comunidad.jpg" alt="" loading="lazy"><figcaption data-i18n="g10">Siembra con la comunidad y Gestión del Riesgo</figcaption></figure>
+      <figure><img src="img/marca-territorial.jpg" alt="" loading="lazy" style="object-position:center 30%"><figcaption data-i18n="g11">Marca territorial: nace de su gente</figcaption></figure>
       <figure class="ancha"><img src="img/equipo.jpg" alt="" loading="lazy"><figcaption data-i18n="g9">Planeación con la comunidad</figcaption></figure>
     </div>
   </div>
@@ -613,9 +645,15 @@ footer b{color:#fff}
       <a href="https://www.rpgbajocauca-antioquia.gov.co/" target="_blank" rel="noopener"><small data-i18n="kWeb">Sitio oficial</small><b>rpgbajocauca-antioquia.gov.co</b></a>
       <div><small data-i18n="kRedes">Redes sociales</small><b>@rpg_bajocauca</b></div>
     </div>
+    <div class="ubicacion revela">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-75.2063%2C7.9814%2C-75.1963%2C7.9874&amp;layer=mapnik&amp;marker=7.98441%2C-75.20131" loading="lazy" title="Ubicación de la RPG-BC en Caucasia"></iframe>
+      <div><small data-i18n="kDonde">Dónde estamos</small><b style="display:block;margin:6px 0 12px" data-i18n="kSede">Sede de la RPG-BC en Caucasia, Antioquia</b>
+        <a class="btn btn-amarillo" style="padding:10px 18px;font-size:.82rem" href="https://www.google.com/maps/dir/?api=1&destination=7.98441,-75.20131" target="_blank" rel="noopener" data-i18n="kLlegar">Cómo llegar</a>
+        <p style="margin-top:14px;font-size:.82rem;color:#d6e9dc"><a href="https://www.rpgbajocauca-antioquia.gov.co/" target="_blank" rel="noopener" style="color:#fff">rpgbajocauca-antioquia.gov.co</a> · <span data-i18n="kPqrs">PQRS y transparencia en el sitio oficial</span></p></div>
+    </div>
     <div class="redes revela">
       <a href="https://www.instagram.com/rpg_bajocauca/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.facebook.com/rpg_bajocauca" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/RPGBajoCauca" target="_blank" rel="noopener">Facebook</a>
       <a href="https://www.tiktok.com/@rpg_bajocauca" target="_blank" rel="noopener">TikTok</a>
       <a href="https://x.com/rpg_bajocauca" target="_blank" rel="noopener">X</a>
       <a href="https://www.youtube.com/@rpg_bajocauca" target="_blank" rel="noopener">YouTube</a>
@@ -640,7 +678,7 @@ footer b{color:#fff}
 <script>
 /* ====== TEXTOS ES / EN ====== */
 const T={
-es:{marcaSub:"Región de Planeación y Gestión del Bajo Cauca",horaBC:"Hora en el Bajo Cauca",nSomos:"Somos",nMunicipios:"6 municipios",nAgenda:"Agenda",nDiferencia:"Lo que nos diferencia",nIniciativas:"Tu iniciativa",nGaleria:"Galería",nVideo:"Video",nRedes:"En redes",rdPre:"Lo último de @rpg_bajocauca",rdH2:"En redes y en las noticias",rdP:"Un robot revisa cada 30 minutos las publicaciones de la RPG-BC y las noticias que la mencionan.",rdHoy:"Hoy",rdHoyTxt:"publicaciones nuevas",rdActualizar:"Actualizar",rdTodo:"Todo",rdNoticias:"Noticias",rdOtras:"Facebook / TikTok / X",rdRevisado:"Última revisión del robot",rdBuscando:"Buscando publicaciones…",rdVacio:"El robot todavía no ha traído publicaciones. Mientras tanto, mira las redes de la RPG-BC:",rdVer:"Ver publicación",rdVerVideo:"VER VIDEO",rdNuevo:"NUEVO",rdLista:"Listo, actualizado",mapa1:"El Bajo Cauca antioqueño en Colombia",mapa2:"Los seis municipios de la RPG-BC",vPre:"El territorio en movimiento",vH2:"Seis paraísos biodiversos: río, bosque y gente",vNota:"Más videos de la RPG-BC en sus redes: @rpg_bajocauca",nContacto:"Contacto",
+es:{marcaSub:"Región de Planeación y Gestión del Bajo Cauca",horaBC:"Hora en el Bajo Cauca",nSomos:"Somos",nMunicipios:"6 municipios",nAgenda:"Agenda",nDiferencia:"Lo que nos diferencia",nIniciativas:"Tu iniciativa",nGaleria:"Galería",nVideo:"Video",nRedes:"En redes",rdSitio:"Sitio oficial",bPre:"Destacado por la RPG-BC",vInst:"Video institucional de la RPG-BC",vMarca:"¡Estamos construyendo la Marca Territorial del Bajo Cauca!",kDonde:"Dónde estamos",kSede:"Sede de la RPG-BC en Caucasia, Antioquia",kLlegar:"Cómo llegar",kPqrs:"PQRS y transparencia en el sitio oficial",g10:"Siembra con la comunidad y Gestión del Riesgo",g11:"Marca territorial: nace de su gente",rdPre:"Lo último de @rpg_bajocauca",rdH2:"En redes y en las noticias",rdP:"Un robot revisa cada 30 minutos el sitio oficial, las redes de la RPG-BC y las noticias que la mencionan.",rdHoy:"Hoy",rdHoyTxt:"publicaciones nuevas",rdActualizar:"Actualizar",rdTodo:"Todo",rdNoticias:"Noticias",rdOtras:"Facebook / TikTok / X",rdRevisado:"Última revisión del robot",rdBuscando:"Buscando publicaciones…",rdVacio:"El robot todavía no ha traído publicaciones. Mientras tanto, mira las redes de la RPG-BC:",rdVer:"Ver publicación",rdVerVideo:"VER VIDEO",rdNuevo:"NUEVO",rdLista:"Listo, actualizado",mapa1:"El Bajo Cauca antioqueño en Colombia",mapa2:"Los seis municipios de la RPG-BC",vPre:"El territorio en movimiento",vH2:"Seis paraísos biodiversos: río, bosque y gente",vNota:"Más videos de la RPG-BC en sus redes: @rpg_bajocauca",nContacto:"Contacto",
 heroEtq:"Bajo Cauca · Seis paraísos biodiversos",heroH1:"No llegamos al territorio…<br><em>¡Somos el Territorio!</em>",heroSub:"Seis municipios, una visión regional: una agenda para un Bajo Cauca más sostenible y biodiverso.",heroBtn1:"Presenta tu iniciativa",heroBtn2:"Recorre los 6 municipios",
 cMun:"Municipios",cHab:"Habitantes",cTer:"De territorio",
 sPre:"Región de Planeación y Gestión",sH2:"Territorio que une oportunidades",sP:"Articulamos seis municipios para generar impacto regional.",
@@ -658,7 +696,7 @@ vacio:"Aún no has guardado iniciativas. Llena el formulario y aparecerán aquí
 gPre:"Bajo Cauca · Seis paraísos biodiversos",gH2:"Así se ve nuestro territorio",g1:"Río y canoa, paisaje del Bajo Cauca",g2:"Islas y montañas sobre el río",g3:"Atardecer en las ciénagas",g4:"Bosque y biodiversidad",g5:"Sembrando futuro en el territorio",g6:"Caucasia, capital del Bajo Cauca",g7:"Patrimonio y fe de la región",g8:"La vida ribereña",g9:"Planeación con la comunidad",
 kPre:"Conectemos",kH2:"Construyamos juntos nuevas oportunidades para el Bajo Cauca antioqueño",kP:"Conectemos nuestras capacidades y construyamos juntos nuevas oportunidades.",kCorreo:"Correo de la dirección",kWeb:"Sitio oficial",kRedes:"Redes sociales",compartir:"Compartir esta app",lema:"No llegamos al territorio… <em>¡Somos el Territorio!</em>",
 pie1:"Región de Planeación y Gestión del Bajo Cauca",instalar:"Instala la app de la RPG-BC",instalarBtn:"Instalar",cerrar:"Cerrar",lineas:["Ambiental","Social","Económico","Educativo","Cultural","Institucional"],fotoRef:"Foto de referencia del Bajo Cauca",municipio:"Municipio"},
-en:{marcaSub:"Bajo Cauca Planning and Management Region",horaBC:"Time in Bajo Cauca",nSomos:"Who we are",nMunicipios:"6 towns",nAgenda:"Agenda",nDiferencia:"What sets us apart",nIniciativas:"Your initiative",nGaleria:"Gallery",nVideo:"Video",nRedes:"Social media",rdPre:"Latest from @rpg_bajocauca",rdH2:"On social media and in the news",rdP:"A robot checks RPG-BC posts and news mentioning it every 30 minutes.",rdHoy:"Today",rdHoyTxt:"new posts",rdActualizar:"Refresh",rdTodo:"All",rdNoticias:"News",rdOtras:"Facebook / TikTok / X",rdRevisado:"Robot last checked",rdBuscando:"Looking for posts…",rdVacio:"The robot hasn't brought posts yet. Meanwhile, check RPG-BC on social media:",rdVer:"View post",rdVerVideo:"WATCH VIDEO",rdNuevo:"NEW",rdLista:"Done, refreshed",mapa1:"Bajo Cauca, Antioquia, in Colombia",mapa2:"The six RPG-BC municipalities",vPre:"The territory in motion",vH2:"Six biodiverse paradises: river, forest and people",vNota:"More RPG-BC videos on its social media: @rpg_bajocauca",nContacto:"Contact",
+en:{marcaSub:"Bajo Cauca Planning and Management Region",horaBC:"Time in Bajo Cauca",nSomos:"Who we are",nMunicipios:"6 towns",nAgenda:"Agenda",nDiferencia:"What sets us apart",nIniciativas:"Your initiative",nGaleria:"Gallery",nVideo:"Video",nRedes:"Social media",rdSitio:"Official site",bPre:"Featured by RPG-BC",vInst:"RPG-BC institutional video",vMarca:"We are building the Bajo Cauca territorial brand!",kDonde:"Where we are",kSede:"RPG-BC office in Caucasia, Antioquia",kLlegar:"Get directions",kPqrs:"Requests (PQRS) and transparency on the official site",g10:"Tree planting with the community and Risk Management",g11:"Territorial brand: born from its people",rdPre:"Latest from @rpg_bajocauca",rdH2:"On social media and in the news",rdP:"A robot checks the official site, RPG-BC social media and news mentioning it every 30 minutes.",rdHoy:"Today",rdHoyTxt:"new posts",rdActualizar:"Refresh",rdTodo:"All",rdNoticias:"News",rdOtras:"Facebook / TikTok / X",rdRevisado:"Robot last checked",rdBuscando:"Looking for posts…",rdVacio:"The robot hasn't brought posts yet. Meanwhile, check RPG-BC on social media:",rdVer:"View post",rdVerVideo:"WATCH VIDEO",rdNuevo:"NEW",rdLista:"Done, refreshed",mapa1:"Bajo Cauca, Antioquia, in Colombia",mapa2:"The six RPG-BC municipalities",vPre:"The territory in motion",vH2:"Six biodiverse paradises: river, forest and people",vNota:"More RPG-BC videos on its social media: @rpg_bajocauca",nContacto:"Contact",
 heroEtq:"Bajo Cauca · Six biodiverse paradises",heroH1:"We don't come to the territory…<br><em>We are the Territory!</em>",heroSub:"Six municipalities, one regional vision: an agenda for a more sustainable and biodiverse Bajo Cauca.",heroBtn1:"Submit your initiative",heroBtn2:"Explore the 6 towns",
 cMun:"Municipalities",cHab:"Inhabitants",cTer:"Of territory",
 sPre:"Planning and Management Region",sH2:"A territory that brings opportunities together",sP:"We bring six municipalities together to create regional impact.",
@@ -832,7 +870,7 @@ async function cargarRedes(manual){
   pintarRedes(); if(manual)aviso(t('rdLista'));
 }
 function todasRedes(){if(!REDES)return[];
-  return [...(REDES.instagram||[]),...(REDES.youtube||[]),...(REDES.noticias||[]),...(REDES.manual||[]).filter(x=>x.id!=='m-ejemplo')]
+  return [...(REDES.sitio||[]),...(REDES.instagram||[]),...(REDES.youtube||[]),...(REDES.noticias||[]),...(REDES.manual||[]).filter(x=>x.id!=='m-ejemplo')]
    .filter(x=>x&&x.enlace).sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)));}
 function pintarVideos(){const v=(REDES&&REDES.youtube||[]).slice(0,3);const reels=(REDES&&REDES.manual||[]).filter(x=>x.embed).slice(0,2);
   $('#videosRPG').innerHTML=v.map(x=>`<article class="post"><div class="img"><img src="${esc(x.imagen)}" alt="" loading="lazy" onerror="this.src='img/rio-isla.jpg'">
@@ -840,16 +878,24 @@ function pintarVideos(){const v=(REDES&&REDES.youtube||[]).slice(0,3);const reel
    <div class="cuerpo"><span class="fecha">${fechaBonita(x.fecha)}</span><h4>${esc(sinEmoji(x.titulo))}</h4></div></article>`).join('')
    +reels.map(x=>`<article class="post reel"><div class="img"><iframe src="${esc(x.embed)}" loading="lazy" allowtransparency="true" allow="encrypted-media; autoplay" scrolling="no"></iframe></div>
    <div class="cuerpo"><h4>${esc(sinEmoji(x.titulo))}</h4></div></article>`).join('');}
-$('#videosRPG').addEventListener('click',e=>{const b=e.target.closest('.play');if(!b)return;
+document.querySelector('.seccion-video').addEventListener('click',e=>{const b=e.target.closest('.play');if(!b)return;
   b.parentElement.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.v)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;});
-function pintarRedes(){if(!REDES)return; pintarVideos();
+let carruselT=null;
+function pintarBanners(){const b=(REDES&&REDES.banners||[]).filter(x=>/^https:/.test(x.imagen));
+  $('#destacados').hidden=!b.length; if(!b.length)return;
+  $('#carrusel').innerHTML=b.map((x,i)=>`<a href="${esc(x.enlace)}" target="_blank" rel="noopener" class="${i?'':'on'}"><img src="${esc(x.imagen)}" alt="${esc(x.titulo)}" loading="${i?'lazy':'eager'}">${x.titulo?`<span>${esc(sinEmoji(x.titulo))}</span>`:''}</a>`).join('');
+  $('#puntosC').innerHTML=b.map((x,i)=>`<i class="${i?'':'on'}" data-i="${i}"></i>`).join('');
+  let i=0;const ir=n=>{const a=$$('#carrusel a'),p=$$('#puntosC i');a[i].classList.remove('on');p[i].classList.remove('on');i=n%a.length;a[i].classList.add('on');p[i].classList.add('on');};
+  $('#puntosC').onclick=e=>{const d=e.target.dataset.i;if(d!=null)ir(+d);};
+  clearInterval(carruselT);carruselT=setInterval(()=>ir(i+1),5000);}
+function pintarRedes(){if(!REDES)return; pintarVideos(); pintarBanners();
   const hoy=hoyCO(), lista=todasRedes();
   $('#numHoy').textContent=lista.filter(x=>diaCO(x.fecha)===hoy).length;
   $('#revision').textContent=REDES.revisado?`${t('rdRevisado')}: ${REDES.revisado}`:'';
-  const vis=lista.filter(x=>filtro==='todo'||(filtro==='otras'?!['Instagram','YouTube','Noticia'].includes(x.red):x.red===filtro));
+  const vis=lista.filter(x=>filtro==='todo'||(filtro==='otras'?!['Instagram','YouTube','Noticia','Sitio oficial'].includes(x.red):x.red===filtro));
   if(!vis.length){$('#posts').innerHTML=`<div class="vacio" style="grid-column:1/-1">${t('rdVacio')}<div class="redes" style="justify-content:center">
     <a class="btn-verde" style="background:var(--verde);color:#fff" href="https://www.instagram.com/rpg_bajocauca/" target="_blank" rel="noopener">Instagram</a>
-    <a style="background:var(--verde);color:#fff" href="https://www.facebook.com/rpg_bajocauca" target="_blank" rel="noopener">Facebook</a>
+    <a style="background:var(--verde);color:#fff" href="https://www.facebook.com/RPGBajoCauca" target="_blank" rel="noopener">Facebook</a>
     <a style="background:var(--verde);color:#fff" href="https://www.tiktok.com/@rpg_bajocauca" target="_blank" rel="noopener">TikTok</a>
     <a style="background:var(--verde);color:#fff" href="https://www.youtube.com/@rpg_bajocauca" target="_blank" rel="noopener">YouTube</a></div></div>`;return;}
   $('#posts').innerHTML=vis.slice(0,12).map((x,i)=>{
@@ -862,7 +908,7 @@ function pintarRedes(){if(!REDES)return; pintarVideos();
     return `<article class="post"><div class="img"><img src="${esc(img)}" alt="" loading="lazy" onerror="this.src='${FOTOS_RESPALDO[i%FOTOS_RESPALDO.length]}'">
     <span class="red ${nuevo?'nuevo':''}">${nuevo?t('rdNuevo')+' · ':''}${esc(x.red)}${x.fuente?' · '+esc(x.fuente):''}</span>
     ${x.video?`<button class="play" data-v="${esc(x.video)}"><span>${t('rdVerVideo')}</span></button>`:''}</div>
-    <div class="cuerpo"><span class="fecha">${fechaBonita(x.fecha)}</span><h4>${esc(sinEmoji(x.titulo))}</h4>
+    <div class="cuerpo"><span class="fecha">${fechaBonita(x.fecha)}</span><h4>${esc(sinEmoji(x.titulo))}</h4>${x.resumen?`<p class="resumen">${esc(x.resumen)}</p>`:''}
     <a class="ver" href="${esc(x.enlace)}" target="_blank" rel="noopener">${t('rdVer')} →</a></div></article>`}).join('');}
 $('#posts').addEventListener('click',e=>{const b=e.target.closest('.play');if(!b)return;
   b.parentElement.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.v)}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;});

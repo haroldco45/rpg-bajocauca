@@ -1,2 +1,0 @@
-HTTP 200
-{"frame":"{\"name\":true,\"description\":true,\"position\":true,\"company\":true,\"url\":true,\"email\":true,\"image\":true,\"color\":\"tema-6\"}","name":"Nuestro Equipo","status":1,"blockTypeID":14,"tagID":null,"description":"Te permitirá publicar información de perfiles de personas.","isUnique":false,"blockID":30,"isEditable":true}

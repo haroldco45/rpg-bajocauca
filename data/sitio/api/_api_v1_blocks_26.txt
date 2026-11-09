@@ -1,2 +1,0 @@
-HTTP 200
-{"frame":"{\"facebook\":\"\",\"twitter\":\"\",\"instagram\":\"\",\"youtube\":\"https://www.youtube.com/watch?v=x98ihQEwsPA\"}","name":"SOCIAL MEDIA","status":1,"blockTypeID":11,"tagID":null,"description":"Te permitirá publicar los widgets de las redes sociales de la entidad","isUnique":false,"blockID":26,"isEditable":true}

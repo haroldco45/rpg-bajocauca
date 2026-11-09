@@ -1,7 +1,7 @@
-const CACHE='rpg-bc-v5';
+const CACHE='rpg-bc-v6';
 const ARCHIVOS=['./','index.html','manifest.json','icon-192.png','icon-512.png','og.jpg',
 'img/rio-canoa.jpg','img/rio-isla.jpg','img/atardecer.jpg','img/siembra.jpg','img/arbol.jpg',
-'img/equipo.jpg','img/letras-caucasia.jpg','img/templo.jpg','img/monumento.jpg','img/mapa-bajo-cauca.jpg','img/mapa-colombia.jpg'];
+'img/equipo.jpg','img/letras-caucasia.jpg','img/templo.jpg','img/monumento.jpg','img/mapa-bajo-cauca.jpg','img/mapa-colombia.jpg','img/siembra-comunidad.jpg','img/marca-territorial.jpg'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ARCHIVOS)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==CACHE).map(x=>caches.delete(x)))));self.clients.claim();});
 self.addEventListener('fetch',e=>{

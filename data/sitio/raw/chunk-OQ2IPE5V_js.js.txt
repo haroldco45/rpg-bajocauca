@@ -1,1 +1,0 @@
-import{ga as i}from"./chunk-BBKAGAFZ.js";var n=class r{transform(t){if(t){let e=t.split(".").pop();return e?t.replace(e,"txt"):t}else return t}static \u0275fac=function(e){return new(e||r)};static \u0275pipe=i({name:"certificateLog",type:r,pure:!0,standalone:!0})};export{n as a};

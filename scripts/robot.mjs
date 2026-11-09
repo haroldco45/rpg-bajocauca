@@ -20,7 +20,7 @@ async function traer(url, opciones = {}) {
 }
 const limpiar = s => (s || '').replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
 // Sin emojis ni íconos en los títulos
-const sinEmojis = s => (s || '').replace(/[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\u{FE0F}\u{200D}\u{20E3}]/gu, '').replace(/\s{2,}/g, ' ').replace(/^[\s|·:-]+/, '').trim();
+const sinEmojis = s => (s || '').normalize('NFKC').replace(/[\p{Extended_Pictographic}\u{1F1E6}-\u{1F1FF}\u{FE0F}\u{200D}\u{20E3}]/gu, '').replace(/\s{2,}/g, ' ').replace(/^[\s|·:-]+/, '').trim();
 const etiqueta = (xml, t) => { const m = xml.match(new RegExp(`<${t}[^>]*>([\\s\\S]*?)</${t}>`)); return m ? limpiar(m[1]) : ''; };
 
 // ---------- YouTube (RSS oficial del canal) ----------
@@ -77,11 +77,35 @@ async function noticias() {
   return todas.filter(n => !vistos.has(n.titulo) && vistos.add(n.titulo)).sort((a, b) => b.fecha.localeCompare(a.fecha)).slice(0, 12);
 }
 
+// ---------- Sitio oficial (micolombiadigital): noticias y banners ----------
+const SITIO = 'https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co';
+const absoluto = u => u ? new URL(u, SITIO).href.replace(/^http:/, 'https:') : '';
+async function sitio() {
+  const articulos = [];
+  for (let page = 1; page <= 20; page++) {
+    const d = JSON.parse(await traer(`${SITIO}/api/v1/contents?page=${page}&pageSize=50`, { headers: { Accept: 'application/json' } }));
+    for (const x of d.results || []) if (x.contentType === 'Article' && x.name)
+      articulos.push({ red: 'Sitio oficial', id: 'rpg-' + x.contentID, titulo: sinEmojis(x.name), contentID: x.contentID,
+        fecha: x.publishedDateFrom || x.modifiedDate, resumen: sinEmojis((x.metaDescription || '').replace(/\s+/g, ' ')).slice(0, 260),
+        enlace: `https://www.rpgbajocauca-antioquia.gov.co/noticias/${x.friendlyName}`, imagen: absoluto(x.defaultImage || x.imagePost) });
+    if (!d.meta?.hasNextPage) break;
+  }
+  return articulos.sort((a, b) => b.contentID - a.contentID).slice(0, 24);
+}
+async function banners() {
+  const d = JSON.parse(await traer(`${SITIO}/api/v1/banners`, { headers: { Accept: 'application/json' } }));
+  return (d.results || []).filter(b => b.active).sort((a, b) => a.displayOrder - b.displayOrder).map(b => {
+    let c = {}; try { c = JSON.parse(b.body); } catch {}
+    const img = c.file?.imageUrl || c.file?.filePath;
+    return img ? { id: 'b-' + b.bannerID, imagen: absoluto(img), titulo: sinEmojis((c.title || c.description || '').normalize('NFKC')), enlace: c.link || 'https://www.rpgbajocauca-antioquia.gov.co/' } : null;
+  }).filter(Boolean);
+}
+
 async function leerJSON(f, def) { try { return JSON.parse(await fs.readFile(f, 'utf8')); } catch { return def; } }
 
 const anterior = await leerJSON(SALIDA, {});
 const manual = await leerJSON(MANUAL, []);
-const fuentes = { youtube, instagram, noticias };
+const fuentes = { sitio, banners, youtube, instagram, noticias };
 const resultado = { cuenta: '@' + USUARIO, revisado: horaColombia(), revisadoISO: new Date().toISOString(), estado: {} };
 
 for (const [nombre, fn] of Object.entries(fuentes)) {
