@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RPG-BC · Región de Planeación y Gestión del Bajo Cauca</title>
+<meta name="description" content="App de la Región de Planeación y Gestión del Bajo Cauca (RPG-BC): 6 municipios, 1 visión regional. Cáceres, Caucasia, El Bagre, Nechí, Tarazá y Zaragoza. ¡Somos el Territorio!">
+<meta name="theme-color" content="#16502f">
+
+<!-- Vista previa al compartir (Open Graph / Twitter) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="RPG-BC · ¡Somos el Territorio!">
+<meta property="og:description" content="6 municipios, 1 visión regional: un Bajo Cauca más sostenible y biodiverso. Conoce la RPG-BC y presenta tu iniciativa.">
+<meta property="og:image" content="https://rpg-bajocauca.netlify.app/og.jpg">
+<meta property="og:url" content="https://rpg-bajocauca.netlify.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RPG-BC · ¡Somos el Territorio!">
+<meta name="twitter:description" content="6 municipios, 1 visión regional: un Bajo Cauca más sostenible y biodiverso.">
+<meta name="twitter:image" content="https://rpg-bajocauca.netlify.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#16502f; --verde2:#1f6b3f; --verde3:#2f8a52; --menta:#e8f3ec; --lima:#b9d86a;
+  --amarillo:#f0c432; --rojo:#d64034; --azul:#6eb4dc; --tinta:#1b2a22; --gris:#5d6b63;
+  --blanco:#fff; --radio:22px; --sombra:0 14px 40px rgba(14,48,29,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--tinta);background:#f6faf7;line-height:1.55;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* Franja de colores de la marca */
+.franja{height:6px;background:linear-gradient(90deg,var(--amarillo) 0 25%,var(--rojo) 25% 50%,var(--azul) 50% 75%,var(--verde3) 75%);background-size:200% 100%;animation:fluye 8s linear infinite}
+@keyframes fluye{to{background-position:-200% 0}}
+
+/* Encabezado */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 2px 14px rgba(0,0,0,.06)}
+.barra{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;max-width:1120px;margin:0 auto}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none}
+.marca .sello{display:grid;grid-template-columns:repeat(4,8px);gap:3px}
+.marca .sello span{height:16px;border-radius:2px}
+.marca b{font-size:1.15rem;color:var(--verde);letter-spacing:.5px}
+.marca small{display:block;font-size:.62rem;color:var(--gris);line-height:1.1;max-width:150px}
+.acciones{display:flex;align-items:center;gap:8px}
+.reloj{font-size:.72rem;color:var(--gris);text-align:right;line-height:1.2}
+.reloj b{color:var(--verde);font-size:.9rem}
+.btn-idioma{border:2px solid var(--verde);background:#fff;color:var(--verde);font-weight:700;border-radius:999px;padding:6px 12px;cursor:pointer;font-family:inherit;font-size:.78rem}
+.btn-idioma:hover{background:var(--verde);color:#fff}
+nav.menu{display:flex;gap:6px;overflow-x:auto;padding:0 20px 10px;max-width:1120px;margin:0 auto;scrollbar-width:none}
+nav.menu::-webkit-scrollbar{display:none}
+nav.menu a{flex:0 0 auto;text-decoration:none;font-size:.8rem;font-weight:600;color:var(--verde);background:var(--menta);padding:7px 14px;border-radius:999px;transition:.25s}
+nav.menu a.activo,nav.menu a:hover{background:var(--verde);color:#fff}
+
+/* Portada */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
+.hero .fondo{position:absolute;inset:0}
+.hero .fondo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.18) translate(-2%,-2%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,40,24,.15) 0%,rgba(10,40,24,.55) 50%,rgba(10,40,24,.92) 100%)}
+.hero .contenido{position:relative;z-index:2;padding:40px 20px 100px;max-width:1120px;margin:0 auto;width:100%}
+.etiqueta{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:6px 14px;border-radius:999px;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(2.1rem,7vw,4.4rem);line-height:1.05;margin:18px 0 6px;font-weight:800}
+.hero h1 em{font-style:italic;color:var(--amarillo)}
+.hero p.sub{font-size:clamp(1rem,2.4vw,1.25rem);max-width:640px;opacity:.95}
+.botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font-family:inherit;font-weight:700;font-size:.95rem;padding:14px 24px;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.btn-amarillo{background:var(--amarillo);color:#1b2a22}
+.btn-blanco{background:#fff;color:var(--verde)}
+.btn-verde{background:var(--verde);color:#fff}
+.btn-borde{background:transparent;border:2px solid currentColor;color:var(--verde)}
+.puntos{position:absolute;z-index:3;right:20px;bottom:24px;display:flex;gap:6px}
+.puntos i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.45);transition:.3s}
+.puntos i.on{background:var(--amarillo);width:26px;border-radius:6px}
+
+/* Cinta de municipios */
+.cinta{background:var(--verde);color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0}
+.cinta .pista{display:inline-block;animation:cinta 30s linear infinite}
+.cinta span{font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 26px;font-size:.92rem}
+.cinta span:nth-child(4n+1){color:var(--amarillo)}
+.cinta span:nth-child(4n+3){color:var(--azul)}
+@keyframes cinta{to{transform:translateX(-50%)}}
+
+/* Secciones */
+section{padding:72px 0}
+.titulo{margin-bottom:34px}
+.titulo .pre{color:var(--verde3);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.78rem}
+.titulo h2{font-size:clamp(1.7rem,4.5vw,2.6rem);line-height:1.15;color:var(--verde);font-weight:800;margin-top:6px}
+.titulo p{color:var(--gris);max-width:680px;margin-top:10px}
+
+/* Cifras */
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-56px;position:relative;z-index:5}
+.cifra{background:#fff;border-radius:var(--radio);padding:22px 14px;text-align:center;box-shadow:var(--sombra);border-bottom:6px solid var(--verde3)}
+.cifra:nth-child(1){border-color:var(--amarillo)}
+.cifra:nth-child(2){border-color:var(--rojo)}
+.cifra:nth-child(3){border-color:var(--azul)}
+.cifra b{display:block;font-size:clamp(1.6rem,6vw,2.8rem);color:var(--verde);font-weight:800;line-height:1}
+.cifra b sup{font-size:.45em}
+.cifra span{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gris);font-weight:600}
+
+/* Somos / Hacemos / Nos mueve */
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tarjeta{background:#fff;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);transition:transform .35s}
+.tarjeta:hover{transform:translateY(-6px)}
+.tarjeta .foto{height:200px;overflow:hidden}
+.tarjeta .foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.tarjeta:hover .foto img{transform:scale(1.1)}
+.tarjeta .txt{padding:22px}
+.tarjeta .num{font-size:.75rem;font-weight:700;color:var(--verde3);letter-spacing:2px}
+.tarjeta h3{font-size:1.5rem;color:var(--verde);font-weight:800;margin:4px 0 8px}
+.tarjeta p{color:var(--gris);font-size:.95rem}
+
+/* Ruta de los ríos */
+.rios{background:linear-gradient(180deg,var(--menta),#fff)}
+.mapa-rios{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.rio{background:#fff;border-radius:var(--radio);padding:22px;box-shadow:var(--sombra)}
+.rio h3{font-size:1rem;color:var(--verde);display:flex;justify-content:space-between;align-items:center}
+.rio h3 small{color:var(--gris);font-weight:500;font-size:.72rem}
+.cauce{position:relative;margin:26px 6px 8px;height:84px}
+.cauce .agua{position:absolute;left:0;right:0;top:20px;height:10px;border-radius:10px;background:repeating-linear-gradient(90deg,#6eb4dc 0 30px,#9fd0ea 30px 60px);background-size:120px 100%;animation:corre 3s linear infinite}
+.rio.nechi .agua{background:repeating-linear-gradient(90deg,#c9a24a 0 30px,#e3c57a 30px 60px);background-size:120px 100%}
+@keyframes corre{to{background-position:120px 0}}
+.cauce .paradas{position:absolute;inset:0;display:flex;justify-content:space-between}
+.parada{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;cursor:pointer;font-family:inherit;width:25%}
+.parada i{width:30px;height:30px;border-radius:50%;background:#fff;border:5px solid var(--verde3);margin-top:10px;transition:.25s}
+.parada span{font-size:.78rem;font-weight:700;color:var(--verde);text-align:center}
+.parada:hover i,.parada.on i{background:var(--amarillo);border-color:var(--verde);transform:scale(1.25)}
+.ficha{margin-top:24px;display:grid;grid-template-columns:1.1fr 1fr;background:#fff;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);min-height:300px}
+.ficha .foto{position:relative;overflow:hidden;background:var(--verde)}
+.ficha .foto img{width:100%;height:100%;object-fit:cover;animation:aparece .8s}
+.ficha .foto .pie{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;padding:4px 10px;border-radius:999px}
+.ficha .txt{padding:28px}
+.ficha .txt .pre{font-size:.75rem;letter-spacing:2px;color:var(--verde3);font-weight:700;text-transform:uppercase}
+.ficha h3{font-size:2rem;color:var(--verde);font-weight:800;line-height:1.1;margin:4px 0 12px}
+.ficha ul{list-style:none;display:grid;gap:10px}
+.ficha li{padding-left:18px;position:relative;color:var(--tinta);font-size:.93rem}
+.ficha li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;border-radius:2px;background:var(--amarillo)}
+.ficha li:nth-child(2)::before{background:var(--rojo)}
+.ficha li:nth-child(3)::before{background:var(--azul)}
+.ficha li:nth-child(4)::before{background:var(--verde3)}
+@keyframes aparece{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:none}}
+
+/* Agenda */
+.agenda{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.paso{position:relative;border-radius:var(--radio);overflow:hidden;min-height:340px;color:#fff;display:flex;align-items:flex-end;box-shadow:var(--sombra)}
+.paso img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+.paso:hover img{transform:scale(1.08)}
+.paso::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,40,24,.92))}
+.paso .txt{position:relative;z-index:2;padding:22px}
+.paso .verbo{display:inline-block;background:var(--verde3);padding:4px 14px;border-radius:999px;font-weight:800;letter-spacing:1px;font-size:1.05rem}
+.paso:nth-child(2) .verbo{background:var(--rojo)}
+.paso:nth-child(3) .verbo{background:var(--amarillo);color:var(--tinta)}
+.paso h3{font-size:1.25rem;margin:10px 0 6px}
+.paso p{font-size:.88rem;opacity:.92}
+
+/* Lo que nos diferencia */
+.diferencia{background:var(--verde);color:#fff;position:relative;overflow:hidden}
+.diferencia .titulo h2,.diferencia .titulo .pre{color:#fff}
+.diferencia .titulo .pre{color:var(--amarillo)}
+.diferencia .titulo p{color:#d6e9dc}
+.difs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.dif{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--radio);padding:22px;transition:.3s}
+.dif:hover{background:rgba(255,255,255,.16);transform:translateY(-4px)}
+.dif b{display:block;font-size:2.2rem;font-weight:800;color:var(--amarillo);line-height:1}
+.dif h3{font-size:1.05rem;margin:10px 0 6px}
+.dif p{font-size:.86rem;color:#d6e9dc}
+
+/* Encuentras */
+.encuentras{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.enc{background:#fff;border-radius:var(--radio);padding:22px;box-shadow:var(--sombra);border-top:6px solid var(--verde3)}
+.enc:nth-child(1){border-color:var(--amarillo)}.enc:nth-child(2){border-color:var(--rojo)}.enc:nth-child(3){border-color:var(--azul)}
+.enc h3{color:var(--verde);font-size:1.15rem}
+.enc p{color:var(--gris);font-size:.88rem;margin-top:6px}
+
+/* Banco de iniciativas */
+.banco{background:linear-gradient(180deg,#fff,var(--menta))}
+.banco-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+form.iniciativa{background:#fff;border-radius:var(--radio);padding:26px;box-shadow:var(--sombra);display:grid;gap:14px}
+label{font-size:.8rem;font-weight:700;color:var(--verde);display:grid;gap:6px}
+input,select,textarea{font-family:inherit;font-size:.95rem;padding:12px 14px;border:2px solid #d5e5da;border-radius:14px;background:#fbfdfc;color:var(--tinta);width:100%}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--verde3)}
+textarea{min-height:90px;resize:vertical}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{display:none}
+.chips label{font-size:.78rem;padding:8px 14px;border-radius:999px;border:2px solid #d5e5da;color:var(--gris);cursor:pointer;display:inline-block;font-weight:600}
+.chips input:checked+label{background:var(--verde);border-color:var(--verde);color:#fff}
+.habeas{font-size:.75rem;color:var(--gris);display:flex;gap:10px;align-items:flex-start;font-weight:500}
+.habeas input{width:auto;margin-top:3px}
+.lista-ini{display:grid;gap:12px}
+.ini{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 6px 18px rgba(0,0,0,.06);border-left:6px solid var(--verde3);animation:aparece .5s}
+.ini h4{color:var(--verde);font-size:1rem}
+.ini .meta{font-size:.72rem;color:var(--gris);margin:2px 0 8px}
+.ini p{font-size:.86rem}
+.ini .acc{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mini{font-family:inherit;font-size:.72rem;font-weight:700;border:0;border-radius:999px;padding:7px 12px;cursor:pointer;background:var(--menta);color:var(--verde)}
+.mini.rojo{background:#fbe5e3;color:var(--rojo)}
+.vacio{background:#fff;border:2px dashed #cfe1d5;border-radius:18px;padding:28px;text-align:center;color:var(--gris);font-size:.9rem}
+.contador-ini{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.contador-ini b{color:var(--verde)}
+
+/* Mapas y video */
+.mapas{display:grid;grid-template-columns:1fr 1.3fr;gap:18px;margin-bottom:24px}
+.mapas figure{background:#fff;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra)}
+.mapas img{width:100%;height:240px;object-fit:cover}
+.mapas figcaption{padding:12px 16px;font-size:.82rem;font-weight:700;color:var(--verde)}
+.seccion-video{background:#0d3a21;color:#fff}
+.seccion-video .titulo h2{color:#fff}.seccion-video .titulo .pre{color:var(--amarillo)}
+.marco-video{border-radius:var(--radio);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.4);border:4px solid rgba(255,255,255,.12)}
+.marco-video video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+.nota-video{margin-top:14px;color:#cfe3d6;font-size:.9rem}
+.redes a.oscuro{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+/* Galería */
+.galeria{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px}
+.galeria figure{position:relative;border-radius:18px;overflow:hidden;cursor:zoom-in;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+.galeria figure.grande{grid-column:span 2;grid-row:span 2}
+.galeria figure.ancha{grid-column:span 2}
+.galeria img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.galeria figure:hover img{transform:scale(1.1)}
+.galeria figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;color:#fff;font-size:.78rem;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.visor{position:fixed;inset:0;background:rgba(5,20,12,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;flex-direction:column;gap:12px}
+.visor.on{display:flex}
+.visor img{max-height:80vh;border-radius:14px}
+.visor p{color:#fff;font-size:.9rem}
+.visor button{font-family:inherit;background:#fff;color:var(--verde);border:0;border-radius:999px;padding:10px 22px;font-weight:700;cursor:pointer}
+
+/* Contacto */
+.contacto{background:linear-gradient(135deg,var(--verde) 0%,#0d3a21 100%);color:#fff}
+.contacto .titulo h2{color:#fff}.contacto .titulo .pre{color:var(--amarillo)}.contacto .titulo p{color:#d6e9dc}
+.ctc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ctc a,.ctc div{display:block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:var(--radio);padding:22px;text-decoration:none;transition:.3s}
+.ctc a:hover{background:rgba(255,255,255,.18)}
+.ctc small{display:block;color:var(--amarillo);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.7rem}
+.ctc b{display:block;font-size:1rem;margin-top:6px;word-break:break-word}
+.redes{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.redes a{text-decoration:none;font-size:.8rem;font-weight:700;padding:9px 16px;border-radius:999px;background:#fff;color:var(--verde)}
+.lema{margin-top:40px;font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;line-height:1.2}
+.lema em{color:var(--amarillo)}
+
+footer{background:#0a2a18;color:#b8cfc0;font-size:.8rem;padding:26px 0;text-align:center}
+footer b{color:#fff}
+
+/* Botón instalar y aviso */
+.instalar{position:fixed;left:50%;transform:translateX(-50%) translateY(140%);bottom:16px;z-index:60;background:var(--verde);color:#fff;border-radius:999px;padding:10px 10px 10px 20px;display:flex;gap:12px;align-items:center;box-shadow:var(--sombra);transition:.4s;font-size:.85rem;font-weight:600}
+.instalar.on{transform:translateX(-50%) translateY(0)}
+.aviso{position:fixed;top:90px;left:50%;transform:translateX(-50%);background:var(--tinta);color:#fff;padding:10px 20px;border-radius:999px;font-size:.85rem;z-index:120;opacity:0;pointer-events:none;transition:.3s}
+.aviso.on{opacity:1}
+
+/* Animación al hacer scroll */
+.revela{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.revela.on{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .tres,.agenda{grid-template-columns:1fr}
+  .difs,.encuentras{grid-template-columns:1fr 1fr}
+  .mapa-rios,.ficha,.banco-grid,.mapas{grid-template-columns:1fr}
+  .ficha .foto{height:230px}
+  .galeria{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .ctc{grid-template-columns:1fr}
+  .reloj{display:none}
+}
+@media (max-width:520px){
+  .cifras{gap:8px}.cifra{padding:16px 6px}
+  .cifra span{font-size:.6rem;letter-spacing:.5px}
+  .difs,.encuentras,.dos{grid-template-columns:1fr}
+  .marca small{display:none}
+  .hero{min-height:82vh}
+  section{padding:56px 0}
+  .paso{min-height:270px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.revela{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="franja"></div>
+<header>
+  <div class="barra">
+    <a href="#inicio" class="marca" aria-label="RPG-BC">
+      <span class="sello"><span style="background:var(--amarillo)"></span><span style="background:var(--rojo)"></span><span style="background:var(--azul)"></span><span style="background:var(--verde3)"></span></span>
+      <span><b>RPG-BC</b><small data-i18n="marcaSub">Región de Planeación y Gestión del Bajo Cauca</small></span>
+    </a>
+    <div class="acciones">
+      <div class="reloj"><span data-i18n="horaBC">Hora en el Bajo Cauca</span><br><b id="reloj">--:--</b></div>
+      <button class="btn-idioma" id="btnIdioma" aria-label="Cambiar idioma">EN</button>
+    </div>
+  </div>
+  <nav class="menu" id="menu">
+    <a href="#somos" data-i18n="nSomos">Somos</a>
+    <a href="#municipios" data-i18n="nMunicipios">6 municipios</a>
+    <a href="#agenda" data-i18n="nAgenda">Agenda</a>
+    <a href="#diferencia" data-i18n="nDiferencia">Lo que nos diferencia</a>
+    <a href="#iniciativas" data-i18n="nIniciativas">Tu iniciativa</a>
+    <a href="#video" data-i18n="nVideo">Video</a>
+    <a href="#galeria" data-i18n="nGaleria">Galería</a>
+    <a href="#contacto" data-i18n="nContacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- PORTADA -->
+<div class="hero" id="inicio">
+  <div class="fondo" id="fondoHero">
+    <video class="on" autoplay muted loop playsinline preload="auto" poster="img/rio-canoa.jpg" aria-label="Video del territorio del Bajo Cauca">
+      <source src="video/territorio.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="contenido">
+    <span class="etiqueta" data-i18n="heroEtq">Bajo Cauca · Seis paraísos biodiversos</span>
+    <h1 data-i18n="heroH1">No llegamos al territorio…<br><em>¡Somos el Territorio!</em></h1>
+    <p class="sub" data-i18n="heroSub">Seis municipios, una visión regional: una agenda para un Bajo Cauca más sostenible y biodiverso.</p>
+    <div class="botones">
+      <a href="#iniciativas" class="btn btn-amarillo" data-i18n="heroBtn1">Presenta tu iniciativa</a>
+      <a href="#municipios" class="btn btn-blanco" data-i18n="heroBtn2">Recorre los 6 municipios</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cifras">
+    <div class="cifra"><b data-contar="6">0</b><span data-i18n="cMun">Municipios</span></div>
+    <div class="cifra"><b><span data-contar="266">0</span> mil</b><span data-i18n="cHab">Habitantes</span></div>
+    <div class="cifra"><b><span data-contar="8485" data-miles="1">0</span> km<sup>2</sup></b><span data-i18n="cTer">De territorio</span></div>
+  </div>
+</div>
+
+<div class="cinta" aria-hidden="true"><div class="pista" id="pista"></div></div>
+
+<!-- SOMOS -->
+<section id="somos">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="sPre">Región de Planeación y Gestión</div>
+      <h2 data-i18n="sH2">Territorio que une oportunidades</h2>
+      <p data-i18n="sP">Articulamos seis municipios para generar impacto regional.</p>
+    </div>
+    <div class="tres">
+      <article class="tarjeta revela">
+        <div class="foto"><img src="img/rio-canoa.jpg" alt="Río del Bajo Cauca" loading="lazy"></div>
+        <div class="txt"><div class="num">01</div><h3 data-i18n="t1">Somos</h3>
+          <p data-i18n="t1p">Un Esquema Asociativo Territorial que articula seis municipios para transformar desafíos en soluciones y potencialidades en oportunidades de desarrollo regional.</p></div>
+      </article>
+      <article class="tarjeta revela">
+        <div class="foto"><img src="img/rio-isla.jpg" alt="Río y montañas del Bajo Cauca" loading="lazy"></div>
+        <div class="txt"><div class="num">02</div><h3 data-i18n="t2">Hacemos</h3>
+          <p data-i18n="t2p">Promoción, integración y ejecución de acciones estratégicas que generan impacto más allá de los límites de un solo municipio.</p></div>
+      </article>
+      <article class="tarjeta revela">
+        <div class="foto"><img src="img/siembra.jpg" alt="Siembra de árboles en el territorio" loading="lazy" style="object-position:center 30%"></div>
+        <div class="txt"><div class="num">03</div><h3 data-i18n="t3">Nos mueve</h3>
+          <p data-i18n="t3p">Una visión regional de desarrollo que conecta lo ambiental, social, económico, educativo, cultural e institucional para avanzar hacia un Bajo Cauca más sostenible y biodiverso.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MUNICIPIOS / RÍOS -->
+<section id="municipios" class="rios">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="mPre">6 municipios · 1 visión regional</div>
+      <h2 data-i18n="mH2">Recorre el Bajo Cauca por sus ríos</h2>
+      <p data-i18n="mP">Toca cada parada para conocer el municipio. Dos ríos tejen la región: el Cauca y el Nechí, que se encuentran en Nechí.</p>
+    </div>
+    <div class="mapas revela">
+      <figure><img src="img/mapa-colombia.jpg" alt="Ubicación del Bajo Cauca antioqueño en Colombia" loading="lazy"><figcaption data-i18n="mapa1">El Bajo Cauca antioqueño en Colombia</figcaption></figure>
+      <figure><img src="img/mapa-bajo-cauca.jpg" alt="Mapa de los seis municipios del Bajo Cauca" loading="lazy"><figcaption data-i18n="mapa2">Los seis municipios de la RPG-BC</figcaption></figure>
+    </div>
+    <div class="mapa-rios revela">
+      <div class="rio cauca">
+        <h3><span data-i18n="rCauca">Río Cauca</span><small data-i18n="rDir">sur → norte</small></h3>
+        <div class="cauce"><div class="agua"></div><div class="paradas">
+          <button class="parada" data-m="taraza"><i></i><span>Tarazá</span></button>
+          <button class="parada" data-m="caceres"><i></i><span>Cáceres</span></button>
+          <button class="parada" data-m="caucasia"><i></i><span>Caucasia</span></button>
+          <button class="parada" data-m="nechi"><i></i><span>Nechí</span></button>
+        </div></div>
+      </div>
+      <div class="rio nechi">
+        <h3><span data-i18n="rNechi">Río Nechí</span><small data-i18n="rDir">sur → norte</small></h3>
+        <div class="cauce"><div class="agua"></div><div class="paradas">
+          <button class="parada" data-m="zaragoza"><i></i><span>Zaragoza</span></button>
+          <button class="parada" data-m="elbagre"><i></i><span>El Bagre</span></button>
+          <button class="parada" data-m="nechi"><i></i><span>Nechí</span></button>
+        </div></div>
+      </div>
+    </div>
+    <div class="ficha revela" id="ficha"></div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="aPre">Construyamos juntos más impacto</div>
+      <h2 data-i18n="aH2">Una agenda para un Bajo Cauca más sostenible y biodiverso</h2>
+    </div>
+    <div class="agenda">
+      <div class="paso revela"><img src="img/rio-isla.jpg" alt="" loading="lazy"><div class="txt"><span class="verbo" data-i18n="a1">PROMOVER</span><h3 data-i18n="a1h">Desarrollo regional</h3><p data-i18n="a1p">Alianzas estratégicas para que la inversión llegue a toda la subregión.</p></div></div>
+      <div class="paso revela"><img src="img/siembra.jpg" style="object-position:center 25%" alt="" loading="lazy"><div class="txt"><span class="verbo" data-i18n="a2">INTEGRAR</span><h3 data-i18n="a2h">Territorios</h3><p data-i18n="a2p">Conocimiento y capacidades compartidas entre los seis municipios.</p></div></div>
+      <div class="paso revela"><img src="img/rio-canoa.jpg" alt="" loading="lazy"><div class="txt"><span class="verbo" data-i18n="a3">EJECUTAR</span><h3 data-i18n="a3h">Acciones de transformación</h3><p data-i18n="a3p">Proyectos de impacto que se ven en el territorio.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE NOS DIFERENCIA -->
+<section id="diferencia" class="diferencia">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="dPre">¡Lo que nos diferencia!</div>
+      <h2 data-i18n="dH2">Prioridades regionales convertidas en proyectos de alto impacto</h2>
+      <p data-i18n="dP">Conocimiento territorial, articulación multiactor, escala regional y la capacidad de convertir prioridades compartidas en proyectos.</p>
+    </div>
+    <div class="difs">
+      <div class="dif revela"><b>01</b><h3 data-i18n="d1">Conocimiento territorial</h3><p data-i18n="d1p">Somos de aquí: conocemos los ríos, las veredas y la gente.</p></div>
+      <div class="dif revela"><b>02</b><h3 data-i18n="d2">Articulación multiactor</h3><p data-i18n="d2p">Alcaldías, comunidad, academia, empresa y cooperación en una misma mesa.</p></div>
+      <div class="dif revela"><b>03</b><h3 data-i18n="d3">Escala regional</h3><p data-i18n="d3p">Proyectos que superan los límites de un solo municipio.</p></div>
+      <div class="dif revela"><b>04</b><h3 data-i18n="d4">De prioridad a proyecto</h3><p data-i18n="d4p">Prioridades compartidas convertidas en proyectos de alto impacto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ ENCUENTRAS -->
+<section>
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="ePre">Para la comunidad, las alcaldías y los aliados</div>
+      <h2 data-i18n="eH2">¿Qué encuentras en la RPG-BC?</h2>
+    </div>
+    <div class="encuentras">
+      <div class="enc revela"><h3 data-i18n="e1">Territorio</h3><p data-i18n="e1p">Acceso y conocimiento local.</p></div>
+      <div class="enc revela"><h3 data-i18n="e2">Articulación</h3><p data-i18n="e2p">Conexión entre actores y sectores.</p></div>
+      <div class="enc revela"><h3 data-i18n="e3">Oportunidades</h3><p data-i18n="e3p">Proyectos estructurados a partir de desafíos reales.</p></div>
+      <div class="enc revela"><h3 data-i18n="e4">Impacto</h3><p data-i18n="e4p">Resultados ambientales, sociales y económicos verificables.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BANCO DE INICIATIVAS -->
+<section id="iniciativas" class="banco">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="iPre">Banco de iniciativas</div>
+      <h2 data-i18n="iH2">Conectemos capacidades: presenta tu idea para el Bajo Cauca</h2>
+      <p data-i18n="iP">Si eres líder, organización, emprendedor o funcionario, cuéntanos el desafío y tu propuesta. La app arma la ficha y la envías por correo a la RPG-BC en un toque.</p>
+    </div>
+    <div class="banco-grid">
+      <form class="iniciativa revela" id="formIni" autocomplete="on">
+        <label><span data-i18n="fTitulo">Nombre de la iniciativa</span>
+          <input name="titulo" required maxlength="90" data-i18n-ph="fTituloPh" placeholder="Ej.: Vivero comunitario de especies nativas"></label>
+        <div class="dos">
+          <label><span data-i18n="fMun">Municipio</span>
+            <select name="municipio" required>
+              <option value="Regional (varios municipios)" data-i18n="fRegional">Regional (varios municipios)</option>
+              <option>Cáceres</option><option>Caucasia</option><option>El Bagre</option>
+              <option>Nechí</option><option>Tarazá</option><option>Zaragoza</option>
+            </select></label>
+          <label><span data-i18n="fQuien">Quién la presenta</span>
+            <select name="quien">
+              <option value="Ciudadano(a)" data-i18n="q1">Ciudadano(a)</option>
+              <option value="Organización social / JAC" data-i18n="q2">Organización social / JAC</option>
+              <option value="Emprendimiento / empresa" data-i18n="q3">Emprendimiento / empresa</option>
+              <option value="Institución educativa" data-i18n="q4">Institución educativa</option>
+              <option value="Alcaldía / entidad pública" data-i18n="q5">Alcaldía / entidad pública</option>
+            </select></label>
+        </div>
+        <label><span data-i18n="fLinea">Línea</span></label>
+        <div class="chips" id="lineas"></div>
+        <label><span data-i18n="fProblema">¿Qué desafío quieres resolver?</span>
+          <textarea name="problema" required maxlength="600" data-i18n-ph="fProblemaPh" placeholder="Describe el problema real que vive la comunidad."></textarea></label>
+        <label><span data-i18n="fPropuesta">¿Qué propones?</span>
+          <textarea name="propuesta" required maxlength="800" data-i18n-ph="fPropuestaPh" placeholder="Tu solución y cómo beneficia a más de un municipio."></textarea></label>
+        <div class="dos">
+          <label><span data-i18n="fBenef">Personas beneficiadas (aprox.)</span>
+            <input name="beneficiarios" type="number" min="0" inputmode="numeric" placeholder="500"></label>
+          <label><span data-i18n="fNombre">Tu nombre</span>
+            <input name="nombre" required maxlength="80"></label>
+        </div>
+        <div class="dos">
+          <label><span data-i18n="fCel">Celular / WhatsApp</span>
+            <input name="celular" type="tel" inputmode="tel" maxlength="15" placeholder="3001234567"></label>
+          <label><span data-i18n="fCorreo">Correo</span>
+            <input name="correo" type="email" maxlength="80"></label>
+        </div>
+        <label class="habeas"><input type="checkbox" name="habeas" required>
+          <span data-i18n="fHabeas">Autorizo el tratamiento de mis datos personales conforme a la Ley 1581 de 2012 (Habeas Data), solo para gestionar esta iniciativa. Los datos quedan guardados en este celular y viajan únicamente en el correo que yo decida enviar.</span></label>
+        <button class="btn btn-verde" type="submit" data-i18n="fGuardar">Guardar y preparar envío</button>
+      </form>
+      <div>
+        <div class="contador-ini"><span><b id="numIni">0</b> <span data-i18n="misIni">iniciativas guardadas en este celular</span></span>
+          <button class="mini" id="btnExport" data-i18n="exportar">Respaldo .json</button></div>
+        <div class="lista-ini" id="listaIni"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="seccion-video">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="vPre">El territorio en movimiento</div>
+      <h2 data-i18n="vH2">Seis paraísos biodiversos: río, bosque y gente</h2>
+    </div>
+    <div class="marco-video revela">
+      <video controls playsinline preload="metadata" poster="img/rio-isla.jpg">
+        <source src="video/territorio.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="nota-video revela" data-i18n="vNota">Más videos de la RPG-BC en sus redes: @rpg_bajocauca</p>
+    <div class="redes revela"><a class="oscuro" href="https://www.youtube.com/@rpg_bajocauca" target="_blank" rel="noopener">YouTube</a><a class="oscuro" href="https://www.tiktok.com/@rpg_bajocauca" target="_blank" rel="noopener">TikTok</a><a class="oscuro" href="https://www.instagram.com/rpg_bajocauca/" target="_blank" rel="noopener">Instagram</a></div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="gPre">Bajo Cauca · Seis paraísos biodiversos</div>
+      <h2 data-i18n="gH2">Así se ve nuestro territorio</h2>
+    </div>
+    <div class="galeria revela" id="galeriaGrid">
+      <figure class="grande"><img src="img/rio-canoa.jpg" alt="" loading="lazy"><figcaption data-i18n="g1">Río y canoa, paisaje del Bajo Cauca</figcaption></figure>
+      <figure class="ancha"><img src="img/rio-isla.jpg" alt="" loading="lazy"><figcaption data-i18n="g2">Islas y montañas sobre el río</figcaption></figure>
+      <figure><img src="img/atardecer.jpg" alt="" loading="lazy"><figcaption data-i18n="g3">Atardecer en las ciénagas</figcaption></figure>
+      <figure><img src="img/arbol.jpg" alt="" loading="lazy"><figcaption data-i18n="g4">Bosque y biodiversidad</figcaption></figure>
+      <figure class="grande"><img src="img/siembra.jpg" alt="" loading="lazy" style="object-position:center 25%"><figcaption data-i18n="g5">Sembrando futuro en el territorio</figcaption></figure>
+      <figure class="ancha"><img src="img/letras-caucasia.jpg" alt="" loading="lazy"><figcaption data-i18n="g6">Caucasia, capital del Bajo Cauca</figcaption></figure>
+      <figure><img src="img/templo.jpg" alt="" loading="lazy"><figcaption data-i18n="g7">Patrimonio y fe de la región</figcaption></figure>
+      <figure><img src="img/mapa-bajo-cauca.jpg" alt="" loading="lazy"><figcaption data-i18n="mapa2">Los seis municipios de la RPG-BC</figcaption></figure>
+      <figure><img src="img/monumento.jpg" alt="" loading="lazy"><figcaption data-i18n="g8">La vida ribereña</figcaption></figure>
+      <figure class="ancha"><img src="img/equipo.jpg" alt="" loading="lazy"><figcaption data-i18n="g9">Planeación con la comunidad</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contacto">
+  <div class="wrap">
+    <div class="titulo revela">
+      <div class="pre" data-i18n="kPre">Conectemos</div>
+      <h2 data-i18n="kH2">Construyamos juntos nuevas oportunidades para el Bajo Cauca antioqueño</h2>
+      <p data-i18n="kP">Conectemos nuestras capacidades y construyamos juntos nuevas oportunidades.</p>
+    </div>
+    <div class="ctc revela">
+      <a href="mailto:director@rpgbajocauca-antioquia.gov.co"><small data-i18n="kCorreo">Correo de la dirección</small><b>director@rpgbajocauca-antioquia.gov.co</b></a>
+      <a href="https://www.rpgbajocauca-antioquia.gov.co/" target="_blank" rel="noopener"><small data-i18n="kWeb">Sitio oficial</small><b>rpgbajocauca-antioquia.gov.co</b></a>
+      <div><small data-i18n="kRedes">Redes sociales</small><b>@rpg_bajocauca</b></div>
+    </div>
+    <div class="redes revela">
+      <a href="https://www.instagram.com/rpg_bajocauca/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/rpg_bajocauca" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.tiktok.com/@rpg_bajocauca" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://x.com/rpg_bajocauca" target="_blank" rel="noopener">X</a>
+      <a href="https://www.youtube.com/@rpg_bajocauca" target="_blank" rel="noopener">YouTube</a>
+      <button class="btn btn-amarillo" id="btnCompartir" style="padding:9px 18px;font-size:.8rem" data-i18n="compartir">Compartir esta app</button>
+    </div>
+    <p class="lema revela" data-i18n="lema">No llegamos al territorio… <em>¡Somos el Territorio!</em></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>RPG-BC</b> · <span data-i18n="pie1">Región de Planeación y Gestión del Bajo Cauca</span> · NIT 901.500.213-6</p>
+    <p>Cáceres · Caucasia · El Bagre · Nechí · Tarazá · Zaragoza</p>
+    <p style="margin-top:10px">Desarrollada por <b>Vibras Positivas HM</b> — Derechos de Autor Reservados · <a href="https://vibraspositivashm.com" target="_blank" rel="noopener">vibraspositivashm.com</a></p>
+  </div>
+</footer>
+
+<div class="instalar" id="instalar"><span data-i18n="instalar">Instala la app de la RPG-BC</span><button class="btn btn-amarillo" style="padding:8px 16px;font-size:.8rem" id="btnInstalar" data-i18n="instalarBtn">Instalar</button></div>
+<div class="visor" id="visor"><img alt=""><p></p><button data-i18n="cerrar">Cerrar</button></div>
+<div class="aviso" id="aviso"></div>
+
+<script>
+/* ====== TEXTOS ES / EN ====== */
+const T={
+es:{marcaSub:"Región de Planeación y Gestión del Bajo Cauca",horaBC:"Hora en el Bajo Cauca",nSomos:"Somos",nMunicipios:"6 municipios",nAgenda:"Agenda",nDiferencia:"Lo que nos diferencia",nIniciativas:"Tu iniciativa",nGaleria:"Galería",nVideo:"Video",mapa1:"El Bajo Cauca antioqueño en Colombia",mapa2:"Los seis municipios de la RPG-BC",vPre:"El territorio en movimiento",vH2:"Seis paraísos biodiversos: río, bosque y gente",vNota:"Más videos de la RPG-BC en sus redes: @rpg_bajocauca",nContacto:"Contacto",
+heroEtq:"Bajo Cauca · Seis paraísos biodiversos",heroH1:"No llegamos al territorio…<br><em>¡Somos el Territorio!</em>",heroSub:"Seis municipios, una visión regional: una agenda para un Bajo Cauca más sostenible y biodiverso.",heroBtn1:"Presenta tu iniciativa",heroBtn2:"Recorre los 6 municipios",
+cMun:"Municipios",cHab:"Habitantes",cTer:"De territorio",
+sPre:"Región de Planeación y Gestión",sH2:"Territorio que une oportunidades",sP:"Articulamos seis municipios para generar impacto regional.",
+t1:"Somos",t1p:"Un Esquema Asociativo Territorial que articula seis municipios para transformar desafíos en soluciones y potencialidades en oportunidades de desarrollo regional.",
+t2:"Hacemos",t2p:"Promoción, integración y ejecución de acciones estratégicas que generan impacto más allá de los límites de un solo municipio.",
+t3:"Nos mueve",t3p:"Una visión regional de desarrollo que conecta lo ambiental, social, económico, educativo, cultural e institucional para avanzar hacia un Bajo Cauca más sostenible y biodiverso.",
+mPre:"6 municipios · 1 visión regional",mH2:"Recorre el Bajo Cauca por sus ríos",mP:"Toca cada parada para conocer el municipio. Dos ríos tejen la región: el Cauca y el Nechí, que se encuentran en Nechí.",rCauca:"Río Cauca",rNechi:"Río Nechí",rDir:"sur → norte",
+aPre:"Construyamos juntos más impacto",aH2:"Una agenda para un Bajo Cauca más sostenible y biodiverso",a1:"PROMOVER",a1h:"Desarrollo regional",a1p:"Alianzas estratégicas para que la inversión llegue a toda la subregión.",a2:"INTEGRAR",a2h:"Territorios",a2p:"Conocimiento y capacidades compartidas entre los seis municipios.",a3:"EJECUTAR",a3h:"Acciones de transformación",a3p:"Proyectos de impacto que se ven en el territorio.",
+dPre:"¡Lo que nos diferencia!",dH2:"Prioridades regionales convertidas en proyectos de alto impacto",dP:"Conocimiento territorial, articulación multiactor, escala regional y la capacidad de convertir prioridades compartidas en proyectos.",d1:"Conocimiento territorial",d1p:"Somos de aquí: conocemos los ríos, las veredas y la gente.",d2:"Articulación multiactor",d2p:"Alcaldías, comunidad, academia, empresa y cooperación en una misma mesa.",d3:"Escala regional",d3p:"Proyectos que superan los límites de un solo municipio.",d4:"De prioridad a proyecto",d4p:"Prioridades compartidas convertidas en proyectos de alto impacto.",
+ePre:"Para la comunidad, las alcaldías y los aliados",eH2:"¿Qué encuentras en la RPG-BC?",e1:"Territorio",e1p:"Acceso y conocimiento local.",e2:"Articulación",e2p:"Conexión entre actores y sectores.",e3:"Oportunidades",e3p:"Proyectos estructurados a partir de desafíos reales.",e4:"Impacto",e4p:"Resultados ambientales, sociales y económicos verificables.",
+iPre:"Banco de iniciativas",iH2:"Conectemos capacidades: presenta tu idea para el Bajo Cauca",iP:"Si eres líder, organización, emprendedor o funcionario, cuéntanos el desafío y tu propuesta. La app arma la ficha y la envías por correo a la RPG-BC en un toque.",
+fTitulo:"Nombre de la iniciativa",fTituloPh:"Ej.: Vivero comunitario de especies nativas",fMun:"Municipio",fRegional:"Regional (varios municipios)",fQuien:"Quién la presenta",q1:"Ciudadano(a)",q2:"Organización social / JAC",q3:"Emprendimiento / empresa",q4:"Institución educativa",q5:"Alcaldía / entidad pública",fLinea:"Línea",fProblema:"¿Qué desafío quieres resolver?",fProblemaPh:"Describe el problema real que vive la comunidad.",fPropuesta:"¿Qué propones?",fPropuestaPh:"Tu solución y cómo beneficia a más de un municipio.",fBenef:"Personas beneficiadas (aprox.)",fNombre:"Tu nombre",fCel:"Celular / WhatsApp",fCorreo:"Correo",
+fHabeas:"Autorizo el tratamiento de mis datos personales conforme a la Ley 1581 de 2012 (Habeas Data), solo para gestionar esta iniciativa. Los datos quedan guardados en este celular y viajan únicamente en el correo que yo decida enviar.",fGuardar:"Guardar y preparar envío",misIni:"iniciativas guardadas en este celular",exportar:"Respaldo .json",
+vacio:"Aún no has guardado iniciativas. Llena el formulario y aparecerán aquí, listas para enviar.",enviar:"Enviar por correo",copiar:"Copiar ficha",borrar:"Borrar",mostrar:"Ver contacto",ocultar:"Ocultar",copiado:"Ficha copiada",guardado:"Iniciativa guardada. Ya la puedes enviar.",confirmaBorrar:"¿Borrar esta iniciativa?",
+gPre:"Bajo Cauca · Seis paraísos biodiversos",gH2:"Así se ve nuestro territorio",g1:"Río y canoa, paisaje del Bajo Cauca",g2:"Islas y montañas sobre el río",g3:"Atardecer en las ciénagas",g4:"Bosque y biodiversidad",g5:"Sembrando futuro en el territorio",g6:"Caucasia, capital del Bajo Cauca",g7:"Patrimonio y fe de la región",g8:"La vida ribereña",g9:"Planeación con la comunidad",
+kPre:"Conectemos",kH2:"Construyamos juntos nuevas oportunidades para el Bajo Cauca antioqueño",kP:"Conectemos nuestras capacidades y construyamos juntos nuevas oportunidades.",kCorreo:"Correo de la dirección",kWeb:"Sitio oficial",kRedes:"Redes sociales",compartir:"Compartir esta app",lema:"No llegamos al territorio… <em>¡Somos el Territorio!</em>",
+pie1:"Región de Planeación y Gestión del Bajo Cauca",instalar:"Instala la app de la RPG-BC",instalarBtn:"Instalar",cerrar:"Cerrar",lineas:["Ambiental","Social","Económico","Educativo","Cultural","Institucional"],fotoRef:"Foto de referencia del Bajo Cauca",municipio:"Municipio"},
+en:{marcaSub:"Bajo Cauca Planning and Management Region",horaBC:"Time in Bajo Cauca",nSomos:"Who we are",nMunicipios:"6 towns",nAgenda:"Agenda",nDiferencia:"What sets us apart",nIniciativas:"Your initiative",nGaleria:"Gallery",nVideo:"Video",mapa1:"Bajo Cauca, Antioquia, in Colombia",mapa2:"The six RPG-BC municipalities",vPre:"The territory in motion",vH2:"Six biodiverse paradises: river, forest and people",vNota:"More RPG-BC videos on its social media: @rpg_bajocauca",nContacto:"Contact",
+heroEtq:"Bajo Cauca · Six biodiverse paradises",heroH1:"We don't come to the territory…<br><em>We are the Territory!</em>",heroSub:"Six municipalities, one regional vision: an agenda for a more sustainable and biodiverse Bajo Cauca.",heroBtn1:"Submit your initiative",heroBtn2:"Explore the 6 towns",
+cMun:"Municipalities",cHab:"Inhabitants",cTer:"Of territory",
+sPre:"Planning and Management Region",sH2:"A territory that brings opportunities together",sP:"We bring six municipalities together to create regional impact.",
+t1:"Who we are",t1p:"A Territorial Associative Scheme that unites six municipalities to turn challenges into solutions and potential into regional development opportunities.",
+t2:"What we do",t2p:"We promote, integrate and carry out strategic actions whose impact goes beyond the limits of a single municipality.",
+t3:"What drives us",t3p:"A regional development vision connecting the environmental, social, economic, educational, cultural and institutional dimensions toward a more sustainable and biodiverse Bajo Cauca.",
+mPre:"6 municipalities · 1 regional vision",mH2:"Travel Bajo Cauca along its rivers",mP:"Tap each stop to meet the town. Two rivers weave the region together: the Cauca and the Nechí, which meet at Nechí.",rCauca:"Cauca River",rNechi:"Nechí River",rDir:"south → north",
+aPre:"Let's build more impact together",aH2:"An agenda for a more sustainable and biodiverse Bajo Cauca",a1:"PROMOTE",a1h:"Regional development",a1p:"Strategic alliances so investment reaches the whole subregion.",a2:"INTEGRATE",a2h:"Territories",a2p:"Knowledge and capacities shared among the six municipalities.",a3:"EXECUTE",a3h:"Transformation actions",a3p:"Impact projects you can see on the ground.",
+dPre:"What sets us apart!",dH2:"Regional priorities turned into high-impact projects",dP:"Territorial knowledge, multi-stakeholder coordination, regional scale and the ability to turn shared priorities into projects.",d1:"Territorial knowledge",d1p:"We are from here: we know the rivers, the villages and the people.",d2:"Multi-stakeholder coordination",d2p:"Town halls, community, academia, business and cooperation at the same table.",d3:"Regional scale",d3p:"Projects that go beyond the limits of a single town.",d4:"From priority to project",d4p:"Shared priorities turned into high-impact projects.",
+ePre:"For communities, town halls and partners",eH2:"What will you find at RPG-BC?",e1:"Territory",e1p:"Local access and knowledge.",e2:"Coordination",e2p:"Connection between actors and sectors.",e3:"Opportunities",e3p:"Projects built from real challenges.",e4:"Impact",e4p:"Verifiable environmental, social and economic results.",
+iPre:"Initiatives bank",iH2:"Let's connect capacities: share your idea for Bajo Cauca",iP:"Whether you are a leader, organization, entrepreneur or public servant, tell us the challenge and your proposal. The app builds the summary and you email it to RPG-BC in one tap.",
+fTitulo:"Initiative name",fTituloPh:"E.g.: Community nursery of native species",fMun:"Municipality",fRegional:"Regional (several towns)",fQuien:"Submitted by",q1:"Citizen",q2:"Social organization / JAC",q3:"Business / venture",q4:"School",q5:"Town hall / public entity",fLinea:"Area",fProblema:"What challenge do you want to solve?",fProblemaPh:"Describe the real problem the community faces.",fPropuesta:"What do you propose?",fPropuestaPh:"Your solution and how it benefits more than one town.",fBenef:"People benefited (approx.)",fNombre:"Your name",fCel:"Mobile / WhatsApp",fCorreo:"Email",
+fHabeas:"I authorize the processing of my personal data under Law 1581 of 2012 (Habeas Data), only to manage this initiative. The data stays on this phone and only travels in the email I choose to send.",fGuardar:"Save and prepare to send",misIni:"initiatives saved on this phone",exportar:".json backup",
+vacio:"You haven't saved any initiatives yet. Fill in the form and they will appear here, ready to send.",enviar:"Send by email",copiar:"Copy summary",borrar:"Delete",mostrar:"Show contact",ocultar:"Hide",copiado:"Summary copied",guardado:"Initiative saved. You can send it now.",confirmaBorrar:"Delete this initiative?",
+gPre:"Bajo Cauca · Six biodiverse paradises",gH2:"This is what our territory looks like",g1:"River and canoe, a Bajo Cauca landscape",g2:"Islands and hills along the river",g3:"Sunset over the wetlands",g4:"Forest and biodiversity",g5:"Planting the future",g6:"Caucasia, capital of Bajo Cauca",g7:"Heritage and faith of the region",g8:"Riverside life",g9:"Planning with the community",
+kPre:"Let's connect",kH2:"Let's build new opportunities together for Bajo Cauca, Antioquia",kP:"Let's connect our capacities and build new opportunities together.",kCorreo:"Director's email",kWeb:"Official website",kRedes:"Social media",compartir:"Share this app",lema:"We don't come to the territory… <em>We are the Territory!</em>",
+pie1:"Bajo Cauca Planning and Management Region",instalar:"Install the RPG-BC app",instalarBtn:"Install",cerrar:"Close",lineas:["Environmental","Social","Economic","Educational","Cultural","Institutional"],fotoRef:"Reference photo of Bajo Cauca",municipio:"Municipality"}
+};
+
+/* ====== MUNICIPIOS ====== */
+const M={
+caucasia:{n:"Caucasia",img:"img/letras-caucasia.jpg",ref:false,
+ es:{pre:"Capital del Bajo Cauca",li:["Centro comercial, educativo y de servicios de la subregión.","A orillas del río Cauca, sobre la Troncal de Occidente: puerta de Antioquia hacia la Costa Caribe.","Punto de encuentro de los seis municipios para ferias, salud y comercio.","Ciénagas y humedales que hacen parte del paisaje biodiverso de la región."]},
+ en:{pre:"Capital of Bajo Cauca",li:["Commercial, educational and service hub of the subregion.","On the banks of the Cauca River, on the Western Highway: Antioquia's gateway to the Caribbean coast.","Meeting point for the six towns for fairs, health and trade.","Wetlands that are part of the region's biodiverse landscape."]}},
+caceres:{n:"Cáceres",img:"img/templo.jpg",ref:true,
+ es:{pre:"Historia viva sobre el Cauca",li:["Uno de los pueblos más antiguos de Antioquia, fundado en el siglo XVI.","Asentado sobre el río Cauca, con tradición ribereña y minera.","Territorio de comunidades campesinas y étnicas.","Patrimonio histórico que hace parte de la identidad regional."]},
+ en:{pre:"Living history on the Cauca",li:["One of the oldest towns in Antioquia, founded in the 16th century.","Set on the Cauca River, with riverside and mining traditions.","Home to rural and ethnic communities.","Historic heritage that shapes the regional identity."]}},
+taraza:{n:"Tarazá",img:"img/arbol.jpg",ref:true,
+ es:{pre:"Puerta sur del Bajo Cauca",li:["Primer municipio del Bajo Cauca viniendo desde el Norte de Antioquia.","Atravesado por la Troncal de Occidente y bañado por el río Cauca.","Vocación agropecuaria y paisajes de montaña y bosque.","Territorio clave para la conexión vial de la región."]},
+ en:{pre:"Southern gateway of Bajo Cauca",li:["First Bajo Cauca town when arriving from northern Antioquia.","Crossed by the Western Highway and the Cauca River.","Farming vocation with mountain and forest landscapes.","Key territory for the region's road connection."]}},
+nechi:{n:"Nechí",img:"img/rio-isla.jpg",ref:true,
+ es:{pre:"Donde se encuentran los ríos",li:["Allí el río Nechí entrega sus aguas al río Cauca.","Vida anfibia: pesca, ciénagas y transporte por el río.","Frontera norte de Antioquia, vecina de Bolívar.","Riqueza hídrica que exige gestión regional del riesgo."]},
+ en:{pre:"Where the rivers meet",li:["Here the Nechí River flows into the Cauca River.","Amphibious life: fishing, wetlands and river transport.","Northern border of Antioquia, next to Bolívar.","Water wealth that calls for regional risk management."]}},
+zaragoza:{n:"Zaragoza",img:"img/monumento.jpg",ref:true,
+ es:{pre:"Orillas del río Nechí",li:["Otro de los pueblos más antiguos de Antioquia, nacido en el siglo XVI.","Asentado sobre el río Nechí, con fuerte tradición minera.","Bosques y fuentes hídricas para proteger y aprovechar de forma sostenible.","Comunidades ribereñas con cultura propia."]},
+ en:{pre:"On the Nechí River",li:["Another of Antioquia's oldest towns, born in the 16th century.","Set on the Nechí River, with a strong mining tradition.","Forests and water sources to protect and use sustainably.","Riverside communities with their own culture."]}},
+elbagre:{n:"El Bagre",img:"img/atardecer.jpg",ref:true,
+ es:{pre:"Corazón del río Nechí",li:["Municipio ribereño sobre el río Nechí, entre Zaragoza y Nechí.","Economía ligada históricamente a la minería de oro de aluvión.","Ciénagas y paisajes que invitan a la reconversión productiva y al turismo de naturaleza.","Vecino del sur de Bolívar."]},
+ en:{pre:"Heart of the Nechí River",li:["Riverside town on the Nechí River, between Zaragoza and Nechí.","Economy historically tied to alluvial gold mining.","Wetlands and landscapes that invite productive transition and nature tourism.","Neighbor of southern Bolívar."]}}
+};
+
+let idioma=localStorage.getItem('rpg_idioma')||'es';
+let actual='caucasia';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const t=k=>T[idioma][k]??k;
+
+function aplicarIdioma(){
+  document.documentElement.lang=idioma;
+  $$('[data-i18n]').forEach(el=>{const v=T[idioma][el.dataset.i18n]; if(v!=null) el.innerHTML=v;});
+  $$('[data-i18n-ph]').forEach(el=>el.placeholder=t(el.dataset.i18nPh));
+  $('#btnIdioma').textContent=idioma==='es'?'EN':'ES';
+  pintarLineas(); pintarFicha(actual); pintarLista();
+}
+$('#btnIdioma').onclick=()=>{idioma=idioma==='es'?'en':'es';localStorage.setItem('rpg_idioma',idioma);aplicarIdioma();};
+
+/* Reloj en hora de Colombia */
+function reloj(){
+  $('#reloj').textContent=new Intl.DateTimeFormat(idioma==='es'?'es-CO':'en-US',{timeZone:'America/Bogota',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date());
+}
+setInterval(reloj,1000);reloj();
+
+/* Video de portada: si el navegador bloquea el autoplay, lo intenta de nuevo al primer toque */
+(()=>{const v=$('#fondoHero video');const play=()=>v.play().catch(()=>{});play();addEventListener('touchstart',play,{once:true});})();
+
+/* Cinta */
+(()=>{const n=["Cáceres","Caucasia","El Bagre","Nechí","Tarazá","Zaragoza","RPG-BC","Somos el Territorio"];
+ $('#pista').innerHTML=[...n,...n,...n,...n].map(x=>`<span>${x}</span>`).join('');})();
+
+/* Contadores */
+function contar(el){const fin=+el.dataset.contar,miles=el.dataset.miles;let ini=null;
+ const paso=ts=>{if(!ini)ini=ts;const p=Math.min((ts-ini)/1600,1),v=Math.round(fin*(1-Math.pow(1-p,3)));
+  el.textContent=miles?v.toLocaleString('es-CO'):v; if(p<1)requestAnimationFrame(paso);};requestAnimationFrame(paso);}
+
+/* Revelar al hacer scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');
+  if(e.target.dataset.contar&&!e.target.dataset.ok){e.target.dataset.ok=1;contar(e.target);} io.unobserve(e.target);}}),{threshold:.15});
+$$('.revela,[data-contar]').forEach(el=>io.observe(el));
+
+/* Menú activo */
+const secciones=$$('section[id]');
+addEventListener('scroll',()=>{let id='';secciones.forEach(s=>{if(scrollY>=s.offsetTop-160)id=s.id;});
+ $$('#menu a').forEach(a=>a.classList.toggle('activo',a.getAttribute('href')==='#'+id));},{passive:true});
+
+/* Ficha del municipio */
+function pintarFicha(k){actual=k;const m=M[k],d=m[idioma];
+ $('#ficha').innerHTML=`<div class="foto"><img src="${m.img}" alt="${m.n}">${m.ref?`<span class="pie">${t('fotoRef')}</span>`:''}</div>
+ <div class="txt"><div class="pre">${t('municipio')} · ${d.pre}</div><h3>${m.n}</h3><ul>${d.li.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+ $$('.parada').forEach(p=>p.classList.toggle('on',p.dataset.m===k));}
+$$('.parada').forEach(p=>p.onclick=()=>{pintarFicha(p.dataset.m);
+ if(innerWidth<860)$('#ficha').scrollIntoView({behavior:'smooth',block:'center'});});
+
+/* ====== BANCO DE INICIATIVAS ====== */
+const CLAVE='rpg_iniciativas';
+const leer=()=>{try{return JSON.parse(localStorage.getItem(CLAVE))||[]}catch(e){return[]}};
+const guardar=l=>localStorage.setItem(CLAVE,JSON.stringify(l));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const enmascarar=s=>s?String(s).replace(/.(?=.{3})/g,'•'):'—';
+function pintarLineas(){const sel=[...$$('#lineas input:checked')].map(i=>i.value);
+ $('#lineas').innerHTML=T.es.lineas.map((v,i)=>`<input type="checkbox" id="ln${i}" value="${v}" ${sel.includes(v)?'checked':''}><label for="ln${i}">${T[idioma].lineas[i]}</label>`).join('');}
+function ficha(x){return `INICIATIVA PARA LA RPG-BC
+Nombre: ${x.titulo}
+Municipio: ${x.municipio}
+Presenta: ${x.quien}
+Líneas: ${x.lineas.join(', ')||'—'}
+Desafío: ${x.problema}
+Propuesta: ${x.propuesta}
+Personas beneficiadas (aprox.): ${x.beneficiarios||'—'}
+Contacto: ${x.nombre} · ${x.celular||'—'} · ${x.correo||'—'}
+Fecha: ${x.fecha} (hora Colombia)
+Autoriza tratamiento de datos (Ley 1581 de 2012): Sí
+— Enviado desde la app RPG-BC`;}
+function pintarLista(){const l=leer();$('#numIni').textContent=l.length;
+ if(!l.length){$('#listaIni').innerHTML=`<div class="vacio">${t('vacio')}</div>`;return;}
+ $('#listaIni').innerHTML=l.map((x,i)=>`<div class="ini"><h4>${esc(x.titulo)}</h4>
+ <div class="meta">${esc(x.municipio)} · ${esc(x.lineas.join(', '))} · ${esc(x.fecha)}</div>
+ <p>${esc(x.propuesta).slice(0,160)}${x.propuesta.length>160?'…':''}</p>
+ <div class="meta" id="ct${i}">${esc(x.nombre)} · ${enmascarar(x.celular)} · ${enmascarar(x.correo)}</div>
+ <div class="acc"><button class="mini" data-a="enviar" data-i="${i}">${t('enviar')}</button>
+ <button class="mini" data-a="copiar" data-i="${i}">${t('copiar')}</button>
+ <button class="mini" data-a="ver" data-i="${i}">${t('mostrar')}</button>
+ <button class="mini rojo" data-a="borrar" data-i="${i}">${t('borrar')}</button></div></div>`).join('');}
+$('#listaIni').onclick=e=>{const b=e.target.closest('button');if(!b)return;const l=leer(),i=+b.dataset.i,x=l[i];
+ if(b.dataset.a==='enviar'){location.href=`mailto:director@rpgbajocauca-antioquia.gov.co?subject=${encodeURIComponent('Iniciativa para el Bajo Cauca: '+x.titulo)}&body=${encodeURIComponent(ficha(x))}`;}
+ if(b.dataset.a==='copiar'){navigator.clipboard?.writeText(ficha(x)).then(()=>aviso(t('copiado')));}
+ if(b.dataset.a==='ver'){const c=$('#ct'+i),abierto=b.dataset.abierto==='1';
+   c.textContent=abierto?`${x.nombre} · ${enmascarar(x.celular)} · ${enmascarar(x.correo)}`:`${x.nombre} · ${x.celular||'—'} · ${x.correo||'—'}`;
+   b.dataset.abierto=abierto?'0':'1';b.textContent=abierto?t('mostrar'):t('ocultar');}
+ if(b.dataset.a==='borrar'&&confirm(t('confirmaBorrar'))){l.splice(i,1);guardar(l);pintarLista();}};
+$('#formIni').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
+ const x=Object.fromEntries(f.entries());delete x.habeas;
+ x.lineas=[...$$('#lineas input:checked')].map(i=>i.value);
+ x.fecha=new Intl.DateTimeFormat('es-CO',{timeZone:'America/Bogota',dateStyle:'medium',timeStyle:'short'}).format(new Date());
+ const l=leer();l.unshift(x);guardar(l);e.target.reset();pintarLineas();pintarLista();aviso(t('guardado'));
+ $('#listaIni').scrollIntoView({behavior:'smooth',block:'start'});};
+$('#btnExport').onclick=()=>{const b=new Blob([JSON.stringify(leer(),null,2)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='iniciativas-rpg-bc.json';a.click();};
+
+/* Galería */
+const visor=$('#visor');
+$('#galeriaGrid').onclick=e=>{const f=e.target.closest('figure');if(!f)return;
+ visor.querySelector('img').src=f.querySelector('img').src;visor.querySelector('p').textContent=f.querySelector('figcaption').textContent;visor.classList.add('on');};
+visor.onclick=e=>{if(e.target!==visor.querySelector('img'))visor.classList.remove('on');};
+
+/* Avisos y compartir */
+function aviso(m){const a=$('#aviso');a.textContent=m;a.classList.add('on');setTimeout(()=>a.classList.remove('on'),2600);}
+$('#btnCompartir').onclick=async()=>{const d={title:'RPG-BC · ¡Somos el Territorio!',text:'Conoce la Región de Planeación y Gestión del Bajo Cauca: 6 municipios, 1 visión regional.',url:location.href};
+ if(navigator.share){try{await navigator.share(d)}catch(e){}}else{navigator.clipboard?.writeText(d.url);aviso(t('copiado'));}};
+
+/* PWA */
+let eventoInstalar;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();eventoInstalar=e;setTimeout(()=>$('#instalar').classList.add('on'),4000);});
+$('#btnInstalar').onclick=async()=>{if(!eventoInstalar)return;eventoInstalar.prompt();await eventoInstalar.userChoice;eventoInstalar=null;$('#instalar').classList.remove('on');};
+addEventListener('appinstalled',()=>$('#instalar').classList.remove('on'));
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+
+aplicarIdioma();
+</script>
+</body>
+</html>
