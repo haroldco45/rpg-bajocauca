@@ -1,0 +1,2 @@
+HTTP 400
+{"error":{"code":"BadArgument","details":[{"code":"BadArgument","details":null,"message":"Tamaño máximo de paginación excedido. El máximo es 20","target":"PageSize"}],"message":"Parametro mal enviado","target":"PageSize"}}
