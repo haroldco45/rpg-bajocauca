@@ -1,17 +1,287 @@
 {
   "cuenta": "@rpg_bajocauca",
-  "revisado": "8/11/2026, 9:13 p. m.",
-  "revisadoISO": "2026-11-09T02:13:30.413Z",
+  "revisado": "8/11/2026, 9:33 p. m.",
+  "revisadoISO": "2026-11-09T02:33:16.930Z",
   "estado": {
+    "sitio": "ok",
+    "banners": "ok",
     "youtube": "sin respuesta, se dejan las últimas guardadas",
     "instagram": "sin respuesta, se dejan las últimas guardadas",
     "noticias": "ok"
   },
+  "sitio": [
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7823",
+      "titulo": "La RPG-BC fortalece alianzas para el desarrollo del Bajo Cauca con participación en evento internacional TIKSO 2026",
+      "contentID": 7823,
+      "fecha": "2026-09-22T20:06:54.5",
+      "resumen": "La entidad participó en el encuentro internacional de tecnología, innovación y cooperación liderado por Makaia, con el apoyo de la Cámara de Comercio de Medellín para Antioquia. Los días 15 y 16 de",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/la-rpgbc-fortalece-alianzas-para-el-desarrollo-del-bajo",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000194/9677_la-rpgbc-fortalece-alianzas-para-el-desarrollo-del-bajo_1024x600.jpeg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7822",
+      "titulo": "¡Acciones que transforman nuestro territorio!",
+      "contentID": 7822,
+      "fecha": "2026-09-15T07:52:55.633",
+      "resumen": "Somos un Esquema Asociativo Territorial que articula a los seis municipios del Bajo Cauca antioqueño. Transformamos desafíos en soluciones y potencialidades en oportunidades de desarrollo regional,",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/acciones-que-transforman-nuestro-territorio",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000194/9664_acciones-que-transforman-nuestro-territorio_1024x600.jpg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7820",
+      "titulo": "¡El Bajo Cauca se conecta con el mundo!",
+      "contentID": 7820,
+      "fecha": "2026-09-10T15:03:31.453",
+      "resumen": "Ya está disponible la primera edición del Boletín de Oportunidades del Bajo Cauca antioqueño La Mesa de Internacionalización del Bajo Cauca presenta la primera edición de su Boletín de",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/el-bajo-cauca-se-conecta-con-el-mundo",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000194/9651_el-bajo-cauca-se-conecta-con-el-mundo_1024x600.jpeg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7818",
+      "titulo": "CUEES Bajo Cauca fortalece articulación entre academia y empresas para ampliar las oportunidades de acceso a la educación superior",
+      "contentID": 7818,
+      "fecha": "2026-09-10T15:02:16.977",
+      "resumen": "Con el propósito de seguir construyendo oportunidades desde la educación, se realizó en Caucasia la Plenaria N.° 39 del Comité Universidad, Empresa, Estado y Sociedad (CUEES) Bajo Cauca, un espacio",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/cuees-bajo-cauca-fortalece-articulacion-entre-academia",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000193/9644_cuees-bajo-cauca-fortalece-articulacion-entre-academia_1024x600.JPG"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7809",
+      "titulo": "La RPG-BC participó en visita guiada por la Gobernación de Antioquia en el municipio de Nechí",
+      "contentID": 7809,
+      "fecha": "2026-09-10T14:59:12.603",
+      "resumen": "La Región de Planeación y Gestión del Bajo Cauca (RPG-BC) participó en la visita guiada realizada por la Gobernación de Antioquia en el municipio de Nechí, un espacio que reunió a autoridades",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/la-rpgbc-participo-en-visita-guiada-por-la-gobernacion",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000193/9628_la-rpgbc-participo-en-visita-guiada-por-la-gobernacion_1024x600.jpeg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7807",
+      "titulo": "En Istmina, cerca de 2.882 niñas, niños y jóvenes se beneficiarán con la construcción de una pista de patinaje en el corregimiento San Antonio",
+      "contentID": 7807,
+      "fecha": "2026-09-10T14:59:40.963",
+      "resumen": "Con el propósito de fortalecer el acceso al deporte, la recreación y el aprovechamiento del tiempo libre, se avanza en la ejecución del proyecto “Construcción de una Pista de Patinaje para el",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/en-istmina-cerca-de-2882-ninas-ninos-y-jovenes-se-beneficiaran",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000193/9626_en-istmina-cerca-de-2882-ninas-ninos-y-jovenes-se-beneficiaran_1024x600.jpeg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7800",
+      "titulo": "PROTOCOLO DE ATENCIÓN AL CIUDADANO DE LA REGIÓN DE PLANEACIÓN Y GESTIÓN DEL BAJO CAUCA - RPG-BC",
+      "contentID": 7800,
+      "fecha": "2026-06-02T09:55:34.16",
+      "resumen": "El Protocolo de Atención al Ciudadano recoge las buenas prácticas institucionales, optimiza los recursos y la capacidad de respuesta, y contribuye al mejoramiento continuo de la calidad del servicio",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/protocolo-de-atencion-al-ciudadano-de-la-region-de-planeacion",
+      "imagen": ""
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7798",
+      "titulo": "El Bajo Cauca construye su identidad una marca territorial que nace de su gente",
+      "contentID": 7798,
+      "fecha": "2026-05-22T17:18:16.907",
+      "resumen": "La Región de Planeación y Gestión del Bajo Cauca – RPG-BC, avanza en la construcción de la Marca Territorial del Bajo Cauca, una apuesta colectiva que busca reconocer la identidad, fortalecer el",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/el-bajo-cauca-construye-su-identidad-una-marca-territorial",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000193/9615_el-bajo-cauca-construye-su-identidad-una-marca-territorial_1024x600.png"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7797",
+      "titulo": "Bajo Cauca fortalece su apuesta internacional con hoja de ruta estratégica y lanzamiento del proyecto “Empleos Verdes”",
+      "contentID": 7797,
+      "fecha": "2026-05-14T09:59:22.017",
+      "resumen": "En el municipio de El Bagre, Antioquia, se realizó el pasado martes 12 de mayo la Plenaria No. 38 del Comité Universidad Empresa Estado Sociedad – CUEES Bajo Cauca, denominada “Oportunidades y retos",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/bajo-cauca-fortalece-su-apuesta-internacional-con-hoja",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000193/9612_bajo-cauca-fortalece-su-apuesta-internacional-con-hoja_1024x600.JPG"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7796",
+      "titulo": "DNP fortalece capacidades en inversión pública de las entidades territoriales del Bajo Cauca",
+      "contentID": 7796,
+      "fecha": "2026-05-04T11:27:02.527",
+      "resumen": "La Región de Planeación y Gestión del Bajo Cauca (RPG-BC) participó en una jornada de capacitación dirigida a las entidades territoriales de la subregión, realizada el pasado 30 de abril en las",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/dnp-fortalece-capacidades-en-inversion-publica-de-las",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000193/9607_dnp-fortalece-capacidades-en-inversion-publica-de-las_1024x600.JPG"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7795",
+      "titulo": "La RPG-BC acompañó sesión de la Mesa Subregional de consejeros y consejeras de Paz del Bajo Cauca",
+      "contentID": 7795,
+      "fecha": "2026-05-04T11:26:44",
+      "resumen": "La Mesa Subregional de consejeros y consejeras de Paz del Bajo Cauca, creada en 2021, está integrada por representantes de los Consejos Municipales de Paz, Reconciliación y Convivencia de Nechí,",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/la-rpgbc-acompano-sesion-de-la-mesa-subregional-de-consejeros",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000192/9596_la-rpgbc-acompano-sesion-de-la-mesa-subregional-de-consejeros_1024x600.JPG"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7792",
+      "titulo": "Ruta del Chavarrí y el Bocachico fortalece la apuesta turística de Nechí, Bajo Cauca antioqueño",
+      "contentID": 7792,
+      "fecha": "2026-04-21T21:32:05.037",
+      "resumen": "En el marco de la estrategia “+ Bajo Cauca Sostenible, Competitiva y Diversa”, liderada por la Caja de Compensación Familiar Comfenalco Antioquia, con el apoyo de la Alcaldía Municipal de Nechí y la",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/ruta-del-chavarri-y-el-bocachico-fortalece-la-apuesta",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000191/9545_ruta-del-chavarri-y-el-bocachico-fortalece-la-apuesta_1024x600.JPG"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7791",
+      "titulo": "En zona rural de San Martín, Cesar, se realizó la socialización de importante obra de pavimentación para mejorar la movilidad",
+      "contentID": 7791,
+      "fecha": "2026-04-18T21:42:57.893",
+      "resumen": "Con el propósito de transformar la infraestructura vial y mejorar la calidad de vida de los habitantes de la vereda La Candelia, jurisdicción del corregimiento de Aguas Blancas, la Alcaldía Municipal",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/en-zona-rural-de-san-martin-cesar-se-realizo-la-socializacion",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000191/9541_en-zona-rural-de-san-martin-cesar-se-realizo-la-socializacion_1024x600.jpeg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7790",
+      "titulo": "Encuentro de articulación entre jóvenes y la RPG-BC con proyección a fortalecer la participación y el liderazgo en el Bajo Cauca",
+      "contentID": 7790,
+      "fecha": "2026-04-17T12:44:05.463",
+      "resumen": "En una apuesta por fortalecer la participación y el liderazgo en la subregión, la Región de Planeación y Gestión del Bajo Cauca (RPG-BC) sostuvo recientemente un encuentro de articulación con jóvenes",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/encuentro-de-articulacion-entre-jovenes-y-la-rpgbc-con",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000191/9537_encuentro-de-articulacion-entre-jovenes-y-la-rpgbc-con_1024x600.png"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7789",
+      "titulo": "Cámara de Comercio de Medellín socializó en Caucasia hoja de ruta de turismo para el Bajo Cauca",
+      "contentID": 7789,
+      "fecha": "2026-04-10T07:57:22.39",
+      "resumen": "El pasado 08 de abril de 2026 se llevó a cabo en el municipio de Caucasia el evento de cierre y socialización de la Ruta de Competitividad Turística del Bajo Cauca. Este espacio permitió presentar el",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/camara-de-comercio-de-medellin-socializo-en-caucasia",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000191/9525_camara-de-comercio-de-medellin-socializo-en-caucasia_1024x600.JPG"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-7786",
+      "titulo": "La RPG-BC participó en la clausura de las estrategias de Asociatividad Territorial y Escuela de Juntanza para la Paz",
+      "contentID": 7786,
+      "fecha": "2026-03-30T08:41:53.317",
+      "resumen": "Caucasia, Antioquia | 30 de marzo de 2026 | Redacción: Prensa RPG Bajo Cauca Región de Planeación y Gestión del Bajo Cauca (RPG-BC) participó en el evento de cierre de las estrategias “Asociatividad",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/la-rpgbc-participo-en-la-clausura-de-las-estrategias",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000191/9515_la-rpgbc-participo-en-la-clausura-de-las-estrategias_1024x600.jpeg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-6785",
+      "titulo": "RPG-BC hace entrega oficial de importante obra a la alcaldía de San Martín Cesar, la cual impulsará el deporte en el corregimiento de Minas",
+      "contentID": 6785,
+      "fecha": "2026-02-09T22:19:33.293",
+      "resumen": "El municipio de San Martín, Cesar, recibió oficialmente una nueva cancha multifuncional cubierta en el corregimiento de Minas, una obra ejecutada por la Región de Planeación y Gestión del Bajo Cauca",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/rpgbc-hace-entrega-oficial-de-importante-obra-a-la-alcaldia",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000171/8505_rpgbc-hace-entrega-oficial-de-importante-obra-a-la-alcaldia_1024x600.jpeg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-6784",
+      "titulo": "¡Nuevo escenario fortalecerá la vocación deportiva del municipio Nechí, Antioquia!",
+      "contentID": 6784,
+      "fecha": "2026-02-04T17:37:03.683",
+      "resumen": "____________________________________________ El pasado martes, 03 de febrero de 2026 se llevó a cabo en el municipio de Nechí la socialización del proyecto “Construcción de placa polideportiva",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/nuevo-escenario-fortalecera-la-vocacion-deportiva-del",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000170/8490_nuevo-escenario-fortalecera-la-vocacion-deportiva-del_1024x600.png"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-6769",
+      "titulo": "Gobierno nacional lideró jornada de instalación de Mesa Interinstitucional para viabilizar el Distrito Agrominero y Pesquero del Bajo Cauca antioqueño",
+      "contentID": 6769,
+      "fecha": "2026-01-27T16:42:53.15",
+      "resumen": "El municipio de Caucasia fue escenario de la jornada de instalación de la Mesa Interinstitucional para la construcción del Plan Estratégico de Gestión del Distrito Agrominero y Pesquero del Bajo",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/gobierno-nacional-lidero-jornada-de-instalacion-de-mesa",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000170/8465_gobierno-nacional-lidero-jornada-de-instalacion-de-mesa_1024x600.JPG"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-4691",
+      "titulo": "Estudiantes de la zona urbana y rural del municipio de San Martín, Cesar, cuentan con rutas de transporte escolar",
+      "contentID": 4691,
+      "fecha": "2024-11-06T14:44:35.063",
+      "resumen": "Caucasia, Antioquia /05 de noviembre de 2024/ Redacción y Prensa: RPG-BC. En San Martín, municipio perteneciente al departamento del Cesar, se ejecuta un importante proyecto que permite desarrollar",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/estudiantes-de-la-zona-urbana-y-rural-del-municipio",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000104/5170_estudiantes-de-la-zona-urbana-y-rural-del-municipio_1024x600.jpg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-4690",
+      "titulo": "La RPG-BC participó del X Congreso Colombiano de Contratación Pública 2024",
+      "contentID": 4690,
+      "fecha": "2024-11-05T12:29:27.63",
+      "resumen": "Caucasia, 05 de noviembre de 2024 / Redacción RPG-BC En el marco de las XXI Jornadas Académicas de la Universidad de Los Andes, se llevó a cabo en la ciudad de Cartagena (Colombia), la Décima (X)",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/la-rpgbc-participo-del-x-congreso-colombiano-de-contratacion",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000104/5154_la-rpgbc-participo-del-x-congreso-colombiano-de-contratacion_1024x600.jpg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-4689",
+      "titulo": "En Caucasia, Ministro de Minas y Energía firmó Resolución que delimita el Primer Distrito Minero para la diversificación productiva del país",
+      "contentID": 4689,
+      "fecha": "2024-10-17T17:39:28.23",
+      "resumen": "Con la presencia del Ministro de Minas y Energía, Andrés Camacho Morales, la Viceministra Johana Rocha; y el acompañamiento de los Ministerios de Agricultura, Ambiente, Interior, Defensa, y",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/en-caucasia-ministro-de-minas-y-energia-firmo-resolucion",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000103/5145_en-caucasia-ministro-de-minas-y-energia-firmo-resolucion_1024x600.jpg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-4688",
+      "titulo": "Fortalecimiento de capacidades a equipos de gobierno de las Entidades Territoriales del Bajo Cauca",
+      "contentID": 4688,
+      "fecha": "2024-10-02T11:42:27.733",
+      "resumen": "Caucasia, 02 de octubre de 2024 – Redacción y Prensa/ RPGBC La Región de Planeación y Gestión del Bajo Cauca – RPGBC, en articulación con el Programa Gobernabilidad Responsable (RG) de USAID, viene",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/fortalecimiento-de-capacidades-a-equipos-de-gobierno",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000103/5138_fortalecimiento-de-capacidades-a-equipos-de-gobierno_1024x600.jpg"
+    },
+    {
+      "red": "Sitio oficial",
+      "id": "rpg-4687",
+      "titulo": "Visita técnica sobre sitio donde se llevará a cabo importante obra para el municipio de Tarazá, Antioquia",
+      "contentID": 4687,
+      "fecha": "2024-09-30T18:47:08.887",
+      "resumen": "Septiembre, 30 de 2024 - Redacción RPGBC Realizamos recorrido con el equipo técnico de la Región de Planeación y Gestión del Bajo Cauca - RPG-GBC y la Secretaría de Planeación del municipio de",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/visita-tecnica-sobre-sitio-donde-se-llevara-a-cabo-importante",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000103/5137_visita-tecnica-sobre-sitio-donde-se-llevara-a-cabo-importante_1024x600.jpg"
+    }
+  ],
+  "banners": [
+    {
+      "id": "b-1050",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000193/9634.jpg",
+      "titulo": "El Bajo Cauca construye su identidad: una marca territorial que nace de su gente",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/el-bajo-cauca-construye-su-identidad-una-marca-territorial"
+    },
+    {
+      "id": "b-12",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000194/9679.jpg",
+      "titulo": "La RPG-BC fortalece alianzas para el desarrollo del Bajo Cauca con participación en evento internacional TIKSO 2026",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/la-rpgbc-fortalece-alianzas-para-el-desarrollo-del-bajo"
+    },
+    {
+      "id": "b-6",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000148/7376.jpg",
+      "titulo": "Sembramos la esperanza de un futuro más sostenible para el Bajo Cauca",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/noticias/sembramos-la-esperanza-de-un-futuro-mas-sostenible-para"
+    },
+    {
+      "id": "b-1052",
+      "imagen": "https://region-de-planeacion-y-gestion-del-bajo-cauca.micolombiadigital.gov.co/sites/region-de-planeacion-y-gestion-del-bajo-cauca/content/files/000194/9693.png",
+      "titulo": "14° CARRERA ATLÉTICA NOCTURNA POR LA PAZ",
+      "enlace": "https://www.rpgbajocauca-antioquia.gov.co/"
+    }
+  ],
   "youtube": [
     {
       "red": "YouTube",
       "id": "yt-9V03Gc7UQfw",
-      "titulo": "📌 ¡COMPROMETIDOS CON EL DESARROLLO REGIONAL!",
+      "titulo": "¡COMPROMETIDOS CON EL DESARROLLO REGIONAL!",
       "fecha": "2026-09-16T21:55:07+00:00",
       "enlace": "https://www.youtube.com/watch?v=9V03Gc7UQfw",
       "imagen": "https://i.ytimg.com/vi/9V03Gc7UQfw/hqdefault.jpg",
@@ -20,7 +290,7 @@
     {
       "red": "YouTube",
       "id": "yt-i5vj57249kI",
-      "titulo": "🐟🎣 #BajoCauca | Pescando sobre el río Nechí",
+      "titulo": "#BajoCauca | Pescando sobre el río Nechí",
       "fecha": "2026-07-03T22:40:16+00:00",
       "enlace": "https://www.youtube.com/watch?v=i5vj57249kI",
       "imagen": "https://i.ytimg.com/vi/i5vj57249kI/hqdefault.jpg",
@@ -29,7 +299,7 @@
     {
       "red": "YouTube",
       "id": "yt-G_9uCisAXjw",
-      "titulo": "#NECHÍ | 🤩🎣🍃 RUTA DEL CHAVARRÍ Y EL BOCACHICO RPGBC",
+      "titulo": "#NECHÍ | RUTA DEL CHAVARRÍ Y EL BOCACHICO RPGBC",
       "fecha": "2026-06-10T04:13:01+00:00",
       "enlace": "https://www.youtube.com/watch?v=G_9uCisAXjw",
       "imagen": "https://i.ytimg.com/vi/G_9uCisAXjw/hqdefault.jpg",
@@ -38,7 +308,7 @@
     {
       "red": "YouTube",
       "id": "yt-VecdniUUtbM",
-      "titulo": "📌 ¡Estamos creando la Marca Territorial del Bajo Cauca!🍃",
+      "titulo": "¡Estamos creando la Marca Territorial del Bajo Cauca!",
       "fecha": "2026-05-30T15:51:25+00:00",
       "enlace": "https://www.youtube.com/watch?v=VecdniUUtbM",
       "imagen": "https://i.ytimg.com/vi/VecdniUUtbM/hqdefault.jpg",
@@ -47,7 +317,7 @@
     {
       "red": "YouTube",
       "id": "yt-yzfTo06IYnA",
-      "titulo": "🍃📣 PLENARIA 36 CUEES BAJO CAUCA SOBRE TURISMO EN NECHÍ | RPG-BC",
+      "titulo": "PLENARIA 36 CUEES BAJO CAUCA SOBRE TURISMO EN NECHÍ | RPG-BC",
       "fecha": "2025-10-01T02:25:22+00:00",
       "enlace": "https://www.youtube.com/watch?v=yzfTo06IYnA",
       "imagen": "https://i.ytimg.com/vi/yzfTo06IYnA/hqdefault.jpg",
@@ -56,7 +326,7 @@
     {
       "red": "YouTube",
       "id": "yt-A_KhKzy5zNc",
-      "titulo": "#BajoCauca | 📢✨Plenaria CUEES Bajo Cauca No 36 en Nechí | RPG-BC",
+      "titulo": "#BajoCauca | Plenaria CUEES Bajo Cauca No 36 en Nechí | RPG-BC",
       "fecha": "2025-09-13T13:02:46+00:00",
       "enlace": "https://www.youtube.com/watch?v=A_KhKzy5zNc",
       "imagen": "https://i.ytimg.com/vi/A_KhKzy5zNc/hqdefault.jpg",
@@ -65,7 +335,7 @@
     {
       "red": "YouTube",
       "id": "yt-lSjkVbLdI4A",
-      "titulo": "#FÚTBOL |📣⚽🥅 El Bajo Cauca es epicentro de la Copa Atlético Nacional con la Comunidad | RPG-BC",
+      "titulo": "#FÚTBOL | El Bajo Cauca es epicentro de la Copa Atlético Nacional con la Comunidad | RPG-BC",
       "fecha": "2025-09-11T20:01:51+00:00",
       "enlace": "https://www.youtube.com/watch?v=lSjkVbLdI4A",
       "imagen": "https://i.ytimg.com/vi/lSjkVbLdI4A/hqdefault.jpg",
@@ -74,7 +344,7 @@
     {
       "red": "YouTube",
       "id": "yt-LhFeD3VC5PU",
-      "titulo": "✨🎉 ¡𝐀𝐬𝐢𝐬𝐭𝐞 𝐚 𝐥𝐚 𝐬𝐨𝐜𝐢𝐚𝐥𝐢𝐳𝐚𝐜𝐢𝐨́𝐧 𝐝𝐞𝐥 𝐈𝐧𝐟𝐨𝐫𝐦𝐞 𝐝𝐞 𝐃𝐢𝐧𝐚́𝐦𝐢𝐜𝐚 𝐋𝐚𝐛𝐨𝐫𝐚𝐥 𝟐𝟎𝟐𝟓!✅",
+      "titulo": "¡Asiste a la socialización del Informe de Dinámica Laboral 2025!",
       "fecha": "2025-08-06T17:07:26+00:00",
       "enlace": "https://www.youtube.com/watch?v=LhFeD3VC5PU",
       "imagen": "https://i.ytimg.com/vi/LhFeD3VC5PU/hqdefault.jpg",
