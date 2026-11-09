@@ -52,9 +52,18 @@ for (const c of chunks) {
   try { await fs.access(f); } catch { try { const r = await fetch(`${BASE}/${c}`, { headers: { 'User-Agent': UA } }); if (r.ok) await fs.writeFile(f, await r.text()); } catch {} }
 }
 await fs.mkdir('data/sitio/api', { recursive: true });
-const candidatos = ['/api/v1/contents', '/api/v1/contents?pageSize=50', '/api/v1/contents?contentType=Article&pageSize=30', '/api/v1/contents/articles', '/api/v1/articles', '/api/v1/news', '/api/v1/home', '/api/v1/blocks', '/api/v1/blocks/home', '/api/v1/menus', '/api/v1/menu', '/api/v1/footer', '/api/v1/banners', '/api/v1/sliders', '/api/v1/tags?pageSize=50', '/api/v1/tags?page=2', '/api/v1/tags?page=3', '/api/v1/contents/home', '/api/v1/contents/featured', '/api/v1/sections', '/api/v1/sites/current', '/api/v1/footers', '/api/v1/events', '/api/v1/contents/search?term=bajo', '/api/v1/search?term=bajo', '/sitemap.xml', '/robots.txt', '/api/v1/settings', '/api/v1/config', '/api/v1/tags', '/api/v1/instagram/', '/api/v1/settings/content/settingcontentglobal', '/api/v1/settings/moreviewed', '/api/v1/content/moreviewed', '/api/v1/globallogo'];
+const candidatos = ['/api/v1/blocks/30', '/api/v1/blocks/30/persons', '/api/v1/persons?blockID=30', '/api/v1/blocks/30/people', '/api/v1/people?blockID=30', '/api/v1/blockpersons/30', '/api/v1/blocks/26', '/api/v1/contents?page=2&pageSize=50', '/api/v1/contents/5699', '/api/v1/contents/articulados-con-la-gobernacion-de-antioquia-seguimos', '/api/v1/contents', '/api/v1/contents?pageSize=50', '/api/v1/contents?contentType=Article&pageSize=30', '/api/v1/contents/articles', '/api/v1/articles', '/api/v1/news', '/api/v1/home', '/api/v1/blocks', '/api/v1/blocks/home', '/api/v1/menus', '/api/v1/menu', '/api/v1/footer', '/api/v1/banners', '/api/v1/sliders', '/api/v1/tags?pageSize=50', '/api/v1/tags?page=2', '/api/v1/tags?page=3', '/api/v1/contents/home', '/api/v1/contents/featured', '/api/v1/sections', '/api/v1/sites/current', '/api/v1/footers', '/api/v1/events', '/api/v1/contents/search?term=bajo', '/api/v1/search?term=bajo', '/sitemap.xml', '/robots.txt', '/api/v1/settings', '/api/v1/config', '/api/v1/tags', '/api/v1/instagram/', '/api/v1/settings/content/settingcontentglobal', '/api/v1/settings/moreviewed', '/api/v1/content/moreviewed', '/api/v1/globallogo'];
 for (const p of candidatos) {
   try { const r = await fetch(BASE + p, { headers: { 'User-Agent': UA, 'Accept': 'application/json' } });
     await fs.writeFile(`data/sitio/api/${p.replace(/[^\w]+/g, '_')}.txt`, `HTTP ${r.status}\n` + (await r.text()).slice(0, 2_000_000)); } catch (e) { console.log('api', p, e.message); }
 }
 console.log('chunks', chunks.length);
+
+// Banners del sitio oficial (fotos reales)
+try {
+  const b = JSON.parse(await fs.readFile('data/sitio/api/_api_v1_banners.txt', 'utf8').then(t => t.split('\n').slice(1).join('\n')));
+  let i = 0;
+  for (const x of b.results) { const im = JSON.parse(x.body)?.file?.imageUrl; if (!im) continue;
+    const u = new URL(im, BASE).href.replace('http://', 'https://'); const r = await fetch(u, { headers: { 'User-Agent': UA } });
+    if (r.ok) await fs.writeFile(`data/sitio/img/banner-${++i}${u.match(/\.(jpe?g|png)/i)?.[0] || '.jpg'}`, Buffer.from(await r.arrayBuffer())); }
+} catch (e) { console.log('banners', e.message); }
