@@ -1,1 +1,121 @@
-{"cuenta":"@rpg_bajocauca","revisado":"esperando la primera revisión del robot","estado":{},"youtube":[],"instagram":[],"noticias":[],"manual":[]}
+{
+  "cuenta": "@rpg_bajocauca",
+  "revisado": "8/11/2026, 8:45 p. m.",
+  "revisadoISO": "2026-11-09T01:45:19.627Z",
+  "estado": {
+    "youtube": "ok",
+    "instagram": "sin respuesta, se dejan las últimas guardadas",
+    "noticias": "ok"
+  },
+  "youtube": [
+    {
+      "red": "YouTube",
+      "id": "yt-9V03Gc7UQfw",
+      "titulo": "📌 ¡COMPROMETIDOS CON EL DESARROLLO REGIONAL!",
+      "fecha": "2026-09-16T21:55:07+00:00",
+      "enlace": "https://www.youtube.com/watch?v=9V03Gc7UQfw",
+      "imagen": "https://i.ytimg.com/vi/9V03Gc7UQfw/hqdefault.jpg",
+      "video": "9V03Gc7UQfw"
+    },
+    {
+      "red": "YouTube",
+      "id": "yt-i5vj57249kI",
+      "titulo": "🐟🎣 #BajoCauca | Pescando sobre el río Nechí",
+      "fecha": "2026-07-03T22:40:16+00:00",
+      "enlace": "https://www.youtube.com/watch?v=i5vj57249kI",
+      "imagen": "https://i.ytimg.com/vi/i5vj57249kI/hqdefault.jpg",
+      "video": "i5vj57249kI"
+    },
+    {
+      "red": "YouTube",
+      "id": "yt-G_9uCisAXjw",
+      "titulo": "#NECHÍ | 🤩🎣🍃 RUTA DEL CHAVARRÍ Y EL BOCACHICO RPGBC",
+      "fecha": "2026-06-10T04:13:01+00:00",
+      "enlace": "https://www.youtube.com/watch?v=G_9uCisAXjw",
+      "imagen": "https://i.ytimg.com/vi/G_9uCisAXjw/hqdefault.jpg",
+      "video": "G_9uCisAXjw"
+    },
+    {
+      "red": "YouTube",
+      "id": "yt-VecdniUUtbM",
+      "titulo": "📌 ¡Estamos creando la Marca Territorial del Bajo Cauca!🍃",
+      "fecha": "2026-05-30T15:51:25+00:00",
+      "enlace": "https://www.youtube.com/watch?v=VecdniUUtbM",
+      "imagen": "https://i.ytimg.com/vi/VecdniUUtbM/hqdefault.jpg",
+      "video": "VecdniUUtbM"
+    },
+    {
+      "red": "YouTube",
+      "id": "yt-yzfTo06IYnA",
+      "titulo": "🍃📣 PLENARIA 36 CUEES BAJO CAUCA SOBRE TURISMO EN NECHÍ | RPG-BC",
+      "fecha": "2025-10-01T02:25:22+00:00",
+      "enlace": "https://www.youtube.com/watch?v=yzfTo06IYnA",
+      "imagen": "https://i.ytimg.com/vi/yzfTo06IYnA/hqdefault.jpg",
+      "video": "yzfTo06IYnA"
+    },
+    {
+      "red": "YouTube",
+      "id": "yt-A_KhKzy5zNc",
+      "titulo": "#BajoCauca | 📢✨Plenaria CUEES Bajo Cauca No 36 en Nechí | RPG-BC",
+      "fecha": "2025-09-13T13:02:46+00:00",
+      "enlace": "https://www.youtube.com/watch?v=A_KhKzy5zNc",
+      "imagen": "https://i.ytimg.com/vi/A_KhKzy5zNc/hqdefault.jpg",
+      "video": "A_KhKzy5zNc"
+    },
+    {
+      "red": "YouTube",
+      "id": "yt-lSjkVbLdI4A",
+      "titulo": "#FÚTBOL |📣⚽🥅 El Bajo Cauca es epicentro de la Copa Atlético Nacional con la Comunidad | RPG-BC",
+      "fecha": "2025-09-11T20:01:51+00:00",
+      "enlace": "https://www.youtube.com/watch?v=lSjkVbLdI4A",
+      "imagen": "https://i.ytimg.com/vi/lSjkVbLdI4A/hqdefault.jpg",
+      "video": "lSjkVbLdI4A"
+    },
+    {
+      "red": "YouTube",
+      "id": "yt-LhFeD3VC5PU",
+      "titulo": "✨🎉 ¡𝐀𝐬𝐢𝐬𝐭𝐞 𝐚 𝐥𝐚 𝐬𝐨𝐜𝐢𝐚𝐥𝐢𝐳𝐚𝐜𝐢𝐨́𝐧 𝐝𝐞𝐥 𝐈𝐧𝐟𝐨𝐫𝐦𝐞 𝐝𝐞 𝐃𝐢𝐧𝐚́𝐦𝐢𝐜𝐚 𝐋𝐚𝐛𝐨𝐫𝐚𝐥 𝟐𝟎𝟐𝟓!✅",
+      "fecha": "2025-08-06T17:07:26+00:00",
+      "enlace": "https://www.youtube.com/watch?v=LhFeD3VC5PU",
+      "imagen": "https://i.ytimg.com/vi/LhFeD3VC5PU/hqdefault.jpg",
+      "video": "LhFeD3VC5PU"
+    }
+  ],
+  "instagram": [],
+  "noticias": [
+    {
+      "red": "Noticia",
+      "id": "n-dVQyWk5lV1ZYTW05Uj9vYz01",
+      "titulo": "Reabren aeropuerto de Colombia que duró cerrado 6 meses y tiene nombre gringo - Pulzo",
+      "fecha": "2025-02-07T08:00:00.000Z",
+      "enlace": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPVWt5SE5sM1h2di03ajc2NExHX3pSMnJkeW9zRVE4d0NfRkhXMTZQdUNMVDBlSjRoUmRmYnpNWDlYUWV5dTV1OHlMOFBSazRXR3FVOVczUUxDb3FfMHktSjFHa3dkNk1NSUNOU1VXQTBWY3RxU2hMSVdxaFczZ2tfSEJ5SjdFdnFIUHY5QThTNFh3WVRLMHJqTzVsT1cwM3ZZaXFxXzdFSXNHWGZCUzR3cDZNYzlTZ9IBuwFBVV95cUxNX1VmMWVSenhxS2N1MW9wYlFpQXNEUkJDWmVCR0xfQW5URVoxeHdSRWhOZncyaUdrRHZDTzc0d2I5NjhEMEl3ZXRHUVduWm9NZHdiYzVkN1JTVXV6MWNjZVZBRVpudVBOeURQLTE0dkpURXR5S1ZXd1IzZEFQcy1iWGI5dUdhbXZYdXFncS16WEpsS0Zoc19pWXdUR2dqb1FrR3dORDhaZFNpQjlEQk5wMk9uT2ZNeWVXMm9R?oc=5",
+      "fuente": "Pulzo"
+    },
+    {
+      "red": "Noticia",
+      "id": "n-sxVEY5QlVUQm1YMjg_b2M9NQ",
+      "titulo": "Más de un año de retraso del nuevo parque de Tarazá - Consejo de Redacción",
+      "fecha": "2023-10-17T07:00:00.000Z",
+      "enlace": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUDJubE5WWS1VcXVBQnc2OFN2MnZ6aDRWa0YxSHR5SVI2bERzT05PQlVIdjI5NkVLSHpVU0tsZ3V2S3hQdXF3ektYVUhrRFpRdGwwZ3I4QTBFV1NQZklBeC1yaTlxdVY1ZXBWSE9vNkIzSWd3ek5PRVlBTGZtOHFfZlVpYXVDT3NHazFyemI3TTJPQ0hrUzV4ZGpwSVhCaThpaFk1TF9BUTBmX28?oc=5",
+      "fuente": "Consejo de Redacción"
+    },
+    {
+      "red": "Noticia",
+      "id": "n-V1Z5Ym1wRWFVdDFiUT9vYz01",
+      "titulo": "Así va el Paro Minero en Antioquia - Fundación Paz & Reconciliación",
+      "fecha": "2023-03-21T07:00:00.000Z",
+      "enlace": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5kM0VvMEYzdWNfd1pERzVzOHZGTVVqekY1d3F0YXFvZTM1aDViQVhxM0V1dFN5M2xPNy0zNEphMG5CN05QQlpWX2dMUWRHMGcxT2RmeWtPbGZQQ2paRlRhdUg5MWVybmpEaUt1bQ?oc=5",
+      "fuente": "Fundación Paz & Reconciliación"
+    }
+  ],
+  "manual": [
+    {
+      "red": "Facebook / TikTok / X",
+      "id": "m-ejemplo",
+      "titulo": "Aquí puedes pegar a mano publicaciones de Facebook, TikTok o X que quieras destacar (borra este ejemplo).",
+      "fecha": "2026-11-08T20:00:00-05:00",
+      "enlace": "https://www.instagram.com/rpg_bajocauca/",
+      "imagen": "img/siembra.jpg"
+    }
+  ]
+}
