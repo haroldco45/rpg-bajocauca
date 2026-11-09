@@ -86,7 +86,7 @@ const resultado = { cuenta: '@' + USUARIO, revisado: horaColombia(), revisadoISO
 
 for (const [nombre, fn] of Object.entries(fuentes)) {
   try { resultado[nombre] = await fn(); resultado.estado[nombre] = 'ok'; console.log(nombre, resultado[nombre].length); }
-  catch (e) { resultado[nombre] = anterior[nombre] || []; resultado.estado[nombre] = 'sin respuesta, se dejan las últimas guardadas'; console.log(nombre, 'falló:', e.message); }
+  catch (e) { resultado[nombre] = (anterior[nombre] || []).map(x => ({ ...x, titulo: sinEmojis(x.titulo) })); resultado.estado[nombre] = 'sin respuesta, se dejan las últimas guardadas'; console.log(nombre, 'falló:', e.message); }
 }
 resultado.manual = manual;
 
