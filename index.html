@@ -222,7 +222,9 @@ textarea{min-height:90px;resize:vertical}
 .puntos-c{display:flex;gap:6px;justify-content:center;margin-top:12px}
 .puntos-c i{width:9px;height:9px;border-radius:50%;background:#cfe1d5;cursor:pointer;transition:.3s}
 .puntos-c i.on{background:var(--verde);width:26px;border-radius:6px}
-@media (max-width:620px){.carrusel{aspect-ratio:16/9}}
+@media (max-width:620px){.carrusel span{display:none}}
+.leyenda-c{margin-top:10px;font-weight:700;color:var(--verde);font-size:.9rem;min-height:1.4em;text-align:center}
+@media (min-width:621px){.leyenda-c{display:none}}
 .ubicacion{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:22px}
 .ubicacion iframe{width:100%;height:260px;border:0;border-radius:var(--radio)}
 .ubicacion div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:var(--radio);padding:22px}
@@ -385,6 +387,7 @@ footer b{color:#fff}
   <div class="wrap">
     <div class="titulo"><div class="pre" data-i18n="bPre">Destacado por la RPG-BC</div></div>
     <div class="carrusel" id="carrusel"></div>
+    <p class="leyenda-c" id="leyendaC"></p>
     <div class="puntos-c" id="puntosC"></div>
   </div>
 </section>
@@ -885,7 +888,7 @@ function pintarBanners(){const b=(REDES&&REDES.banners||[]).filter(x=>x.imagen);
   $('#destacados').hidden=!b.length; if(!b.length)return;
   $('#carrusel').innerHTML=b.map((x,i)=>`<a href="${esc(x.enlace)}" target="_blank" rel="noopener" class="${i?'':'on'}"><img src="${esc(rutaImg(x.imagen))}" alt="${esc(x.titulo)}" loading="${i?'lazy':'eager'}">${x.titulo?`<span>${esc(sinEmoji(x.titulo))}</span>`:''}</a>`).join('');
   $('#puntosC').innerHTML=b.map((x,i)=>`<i class="${i?'':'on'}" data-i="${i}"></i>`).join('');
-  let i=0;const ir=n=>{const a=$$('#carrusel a'),p=$$('#puntosC i');a[i].classList.remove('on');p[i].classList.remove('on');i=n%a.length;a[i].classList.add('on');p[i].classList.add('on');};
+  let i=0;const ley=()=>$('#leyendaC').textContent=sinEmoji(b[i].titulo||'');const ir=n=>{const a=$$('#carrusel a'),p=$$('#puntosC i');a[i].classList.remove('on');p[i].classList.remove('on');i=n%a.length;a[i].classList.add('on');p[i].classList.add('on');ley();};ley();
   $('#puntosC').onclick=e=>{const d=e.target.dataset.i;if(d!=null)ir(+d);};
   clearInterval(carruselT);carruselT=setInterval(()=>ir(i+1),5000);}
 function pintarRedes(){if(!REDES)return; pintarVideos(); pintarBanners();
