@@ -1,11 +1,11 @@
 {
   "cuenta": "@rpg_bajocauca",
-  "revisado": "8/11/2026, 9:39 p. m.",
-  "revisadoISO": "2026-11-09T02:39:26.279Z",
+  "revisado": "11/11/2026, 4:30 p. m.",
+  "revisadoISO": "2026-11-11T21:30:19.170Z",
   "estado": {
     "sitio": "ok",
     "banners": "ok",
-    "youtube": "sin respuesta, se dejan las últimas guardadas",
+    "youtube": "ok",
     "instagram": "sin respuesta, se dejan las últimas guardadas",
     "noticias": "ok"
   },
@@ -372,14 +372,6 @@
       "fecha": "2023-10-17T07:00:00.000Z",
       "enlace": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUDJubE5WWS1VcXVBQnc2OFN2MnZ6aDRWa0YxSHR5SVI2bERzT05PQlVIdjI5NkVLSHpVU0tsZ3V2S3hQdXF3ektYVUhrRFpRdGwwZ3I4QTBFV1NQZklBeC1yaTlxdVY1ZXBWSE9vNkIzSWd3ek5PRVlBTGZtOHFfZlVpYXVDT3NHazFyemI3TTJPQ0hrUzV4ZGpwSVhCaThpaFk1TF9BUTBmX28?oc=5",
       "fuente": "Consejo de Redacción"
-    },
-    {
-      "red": "Noticia",
-      "id": "n-V1Z5Ym1wRWFVdDFiUT9vYz01",
-      "titulo": "Así va el Paro Minero en Antioquia - Fundación Paz & Reconciliación",
-      "fecha": "2023-03-21T07:00:00.000Z",
-      "enlace": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5kM0VvMEYzdWNfd1pERzVzOHZGTVVqekY1d3F0YXFvZTM1aDViQVhxM0V1dFN5M2xPNy0zNEphMG5CN05QQlpWX2dMUWRHMGcxT2RmeWtPbGZQQ2paRlRhdUg5MWVybmpEaUt1bQ?oc=5",
-      "fuente": "Fundación Paz & Reconciliación"
     }
   ],
   "manual": [
